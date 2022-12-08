@@ -1,0 +1,17 @@
+// Imports
+@import "../colors";
+
+.footer,
+.footerTwo {
+	padding: 8.5rem 3.5rem;
+	color: $baseColor_white;
+	background-color: $primary_Blue;
+}
+
+/* Screen (1024px) */
+@media screen and (max-width: 1024px) {
+	.footer,
+	.footerTwo {
+		padding: 8.5rem 2rem;
+	}
+}

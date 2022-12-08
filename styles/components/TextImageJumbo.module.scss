@@ -1,0 +1,101 @@
+// Imports
+@import "../colors";
+
+.TextImageJumbo {
+	padding: 5.5rem 0;
+	overflow: hidden;
+
+	.colourBoxOne {
+		margin-left: 6px;
+		margin-top: -10px;
+	}
+
+	.colourBoxTwo {
+		margin-left: 2px;
+		margin-top: 12px;
+		border: 0.15rem solid $primary_Blue;
+
+		&:hover {
+			transition: all 2s ease-in-out;
+			border: 0.15rem solid $primary_yellow;
+		}
+	}
+
+	.colourBoxThree {
+		margin-left: 9px;
+		margin-top: 12px;
+	}
+
+	.colourBoxOne,
+	.colourBoxThree {
+		border: 0.15rem solid $primary_yellow;
+
+		&:hover {
+			transition: all 2s ease-in-out;
+			border: 0.15rem solid $primary_Blue;
+		}
+	}
+
+	.colourBoxOne,
+	.colourBoxTwo,
+	.colourBoxThree {
+		height: 500px;
+		width: 100%;
+		position: absolute;
+	}
+}
+
+/* Screen (1536px) */
+@media screen and (max-width: 1536px) {
+	.colourBoxOne {
+		margin-left: 2px;
+	}
+}
+
+/* Screen (1366px) */
+@media screen and (max-width: 1366px) {
+	.colourBoxOne {
+		margin-left: 10px;
+	}
+}
+
+/* Screen (1024px) */
+@media screen and (max-width: 1024px) {
+	.colourBoxOne {
+		margin-top: -7px;
+		margin-left: -3px;
+	}
+
+	.colourBoxTwo {
+		margin-top: 7px;
+		margin-left: 3px;
+	}
+
+	.colourBoxThree {
+		margin-top: -7px;
+		margin-left: -3px;
+	}
+}
+
+/* Screen (834px) */
+@media screen and (max-width: 834px) {
+	.colourBoxOne,
+	.colourBoxThree {
+		margin-left: 8px;
+	}
+}
+
+/* Screen (768px) */
+@media screen and (max-width: 768px) {
+	.colourBoxTwo {
+		margin-left: 9px;
+	}
+}
+
+/* Screen (390px) */
+@media screen and (max-width: 390px) {
+	.colourBoxOne,
+	.colourBoxTwo {
+		width: 325px;
+	}
+}
