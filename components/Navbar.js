@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import styles from "../styles/components/Navbar.module.scss";
 import NavbarMenuLinks from "./NavbarMenuLinks";
@@ -94,9 +95,9 @@ const Navbar = (props) => {
 						<div className="content pt-8 pb-0 px-6 pr-16 h-[fit-content] flex flex-col z-50">
 							<div className="flex flex-col text-center py-8">
 								<div className="menuLink">
-									<button className="flex justify-center items-center space-x-4">
+									<button className="flex justify-center items-center my-10 mx-auto space-x-4 w-full leading-[2.5rem] border-b border-white border-solid">
 										<a
-											href="<?php echo get_permalink(327); ?>"
+											href=""
 											className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
 										>
 											Services
@@ -120,9 +121,9 @@ const Navbar = (props) => {
 									</div>
 								</div>
 								<div className="menuLink">
-									<button className="flex justify-center items-center space-x-4">
+									<button className="flex justify-center items-center my-10 mx-auto space-x-4 w-full leading-[2.5rem] border-b border-white border-solid">
 										<a
-											href="<?php echo get_permalink(327); ?>"
+											href=""
 											className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
 										>
 											About
