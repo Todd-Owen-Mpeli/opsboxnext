@@ -13,6 +13,7 @@ import ContentSquares from "../components/ContentSquares";
 import styles from "../styles/Home.module.scss";
 import TextImageJumbo from "../components/TextImageJumbo";
 import CaseStudies from "../components/CaseStudies";
+import Testimonial from "../components/Testimonial";
 
 export default function Home({
 	pageTitle,
@@ -23,7 +24,7 @@ export default function Home({
 	footerContent,
 	footerMenu,
 }) {
-	// console.log(navbarContent);
+	// console.log(homePageContent);
 
 	return (
 		<>
@@ -130,6 +131,19 @@ export default function Home({
 					}
 					displayBoldText={
 						homePageContent?.titleTwoParagraphsButton?.displayBoldText
+					}
+				/>
+
+				{/* TESTIMONIAL */}
+				<Testimonial
+					// Content
+					title={homePageContent?.testimonialSlider?.title}
+					testimonialContent={
+						homePageContent?.testimonialSlider?.testimonialContent
+					}
+					// Display Options
+					displayBackgroundAesthetics={
+						homePageContent?.testimonialSlider?.displayBackgroundAesthetics
 					}
 				/>
 			</main>
@@ -475,18 +489,23 @@ export async function getStaticProps() {
 	const responseNavbarContent = await client.query({
 		query: getNavbarContent,
 	});
+
 	const responseAboutNavbarMenuLinks = await client.query({
 		query: getServicesNavbarMenuLinks,
 	});
+
 	const responseServicesNavbarMenuLinks = await client.query({
 		query: getAboutNavbarMenuLinks,
 	});
+
 	const responseRemainingNavbarMenuLinks = await client.query({
 		query: getRemainingNavbarMenuLinks,
 	});
+
 	const response = await client.query({
 		query: getHomePageContent,
 	});
+
 	const responseFooter = await client.query({
 		query: getFooterContent,
 	});

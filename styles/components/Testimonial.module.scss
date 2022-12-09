@@ -1,0 +1,17 @@
+// Imports
+@import "../colors";
+
+.testimonialSlider {
+	margin: 2.5rem;
+	padding: 4.5rem 0;
+	border: 0.15rem solid $primary_yellow;
+	background-color: $baseColor_white;
+
+	.bottomSection {
+		min-width: 0;
+		display: flex;
+		padding: 0 2rem;
+		align-items: center;
+		justify-content: center;
+	}
+}

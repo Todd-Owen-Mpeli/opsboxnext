@@ -1,14 +1,32 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import styles from "../styles/components/Navbar.module.scss";
+import {useState} from "react";
 import NavbarMenuLinks from "./NavbarMenuLinks";
+import NavbarMenuSublinks from "./NavbarMenuSublinks";
+import styles from "../styles/components/Navbar.module.scss";
 
 const Navbar = (props) => {
-	console.log(props?.menuLinks[1]);
-
+	// Phone Number and Email Links
 	const phoneNumber = `tel:${props?.navbarContent?.phoneNumber}`;
 	const phoneNumberOptionTwo = `tel:${props?.navbarContent?.phoneNumberOptionTwo}`;
 	const emailOptionTwo = `mailto:${props?.footerContent?.emailOptionTwo}`;
+
+	// Display Drop Down Navigation
+	const [navbarOpen, setNavbarOpen] = useState(false);
+	function displayDropdownNavbar() {
+		setNavbarOpen(!navbarOpen);
+	}
+
+	// Display Services sublinks
+	const [servicesSublinksOpen, setServicesSublinksOpen] = useState(false);
+	function displayServicesSublinks() {
+		setServicesSublinksOpen(!servicesSublinksOpen);
+	}
+
+	// Display About sublinks
+	const [aboutSublinksOpen, setAboutSublinksOpen] = useState(false);
+	function displayAboutSublinks() {
+		setAboutSublinksOpen(!aboutSublinksOpen);
+	}
 
 	return (
 		<section className={styles.navbar}>
@@ -16,7 +34,7 @@ const Navbar = (props) => {
 				<div className="content">
 					<div className="flex justify-between items-center pt-4">
 						<div className="z-50">
-							<a href="/">
+							<a href="">
 								<img
 									className="w-[100%] h-[60px] object-contain"
 									src={props?.navbarContent?.companyLogo?.sourceUrl}
@@ -71,112 +89,132 @@ const Navbar = (props) => {
 							</div>
 						</div>
 						<div className={styles.BurgerButton}>
-							<div className="box flex flex-col justify-between items-center py-6 z-50">
-								<button className="btn not-active">
-									<span className="bg-white"></span>
-									<span className="bg-white"></span>
-									<span className="bg-white"></span>
+							<div className={styles.box}>
+								<button className={styles.btn} onClick={displayDropdownNavbar}>
+									<span />
+									<span />
+									<span />
 								</button>
 							</div>
 						</div>
 					</div>
-					<div className="dropdownNavbar block absolute right-0 justify-end item-center bg-blue bg-opacity-75 z-50">
-						<div className="closeMenuButton relative flex justify-center h-full">
-							<button className="squareXButton p-4 w-[75px] h-[50px] absolute  top-0 right-0 bg-yellow hover:bg-orange">
-								<a className="uppercase text-white w-[75px] h-[50px]" href="#">
-									<img
-										className="mx-auto w-[100%] h-[100%] object-contain"
-										src="/svg/icons/CloseDropDownMenuButton.svg"
-										alt="Close PopUp Icon"
-									/>
-								</a>
-							</button>
-						</div>
-						<div className="content pt-8 pb-0 px-6 pr-16 h-[fit-content] flex flex-col z-50">
-							<div className="flex flex-col text-center py-8">
-								<div className="menuLink">
-									<button className="flex justify-center items-center my-10 mx-auto space-x-4 w-full leading-[2.5rem] border-b border-white border-solid">
-										<a
-											href=""
-											className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
+					{navbarOpen ? (
+						<div className="dropdownNavbar absolute right-0 justify-end item-center w-full lg:w-[36%] bg-blue bg-opacity-75 z-50">
+							<div className="closeMenuButton relative flex justify-center h-full">
+								<button
+									className="squareXButton p-4 w-[75px] h-[50px] absolute  top-0 right-0 bg-yellow hover:bg-orange"
+									onClick={displayDropdownNavbar}
+								>
+									<a
+										className="uppercase text-white w-[75px] h-[50px]"
+										href="#"
+									>
+										<img
+											className="mx-auto w-[100%] h-[100%] object-contain"
+											src="/svg/icons/CloseDropDownMenuButton.svg"
+											alt="Close PopUp Icon"
+										/>
+									</a>
+								</button>
+							</div>
+							<div className="content pt-8 pb-0 px-16 h-[fit-content] flex flex-col z-50">
+								<div className="flex flex-col text-center py-8">
+									<div className="menuLink">
+										<button
+											className="flex justify-center items-center space-x-4 w-full mt-2 py-4 border-b border-white border-solid"
+											onClick={displayServicesSublinks}
 										>
-											Services
-										</a>
-										<span>
-											<img
-												className="w-full h-[17px] m-auto"
-												src="/svg/Navigation Menu Dropdown Arrow.svg"
-											/>
-										</span>
-									</button>
-									<div className="flex flex-col justify-center items-center gap-8">
+											<a
+												href="#"
+												className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
+											>
+												Services
+											</a>
+											<span>
+												<img
+													className="w-full h-[17px] m-auto rotate-[270deg]"
+													src="/svg/Navigation Menu Dropdown Arrow.svg"
+												/>
+											</span>
+										</button>
+										{servicesSublinksOpen ? (
+											<div className="flex flex-col justify-center items-center w-full py-4 border-b border-orange border-solid">
+												{/* Menu Array from Wordpress */}
+												{props.menuLinks[1].map((keys) => (
+													<NavbarMenuSublinks
+														Key={keys.id}
+														linkUrl={keys?.node?.url}
+														linkName={keys?.node?.label}
+													/>
+												))}
+											</div>
+										) : null}
+									</div>
+									<div className="menuLink">
+										<button
+											className="flex justify-center items-center space-x-4 w-full py-6 border-b border-white border-solid"
+											onClick={displayAboutSublinks}
+										>
+											<a
+												href="#"
+												className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
+											>
+												About
+											</a>
+											<span>
+												<img
+													className="w-full h-[17px] m-auto rotate-[270deg]"
+													src="/svg/Navigation Menu Dropdown Arrow.svg"
+												/>
+											</span>
+										</button>
+										{aboutSublinksOpen ? (
+											<div className="flex flex-col justify-center items-center w-full py-2 border-b border-orange border-solid">
+												{/* Menu Array from Wordpress */}
+												<NavbarMenuSublinks
+													linkUrl={props?.menuLinks[0]?.node?.url}
+													linkName={props?.menuLinks[0]?.node?.label}
+												/>
+											</div>
+										) : null}
+									</div>
+									<div className="menuLink">
 										{/* Menu Array from Wordpress */}
-										{props.menuLinks[1].map((keys) => (
+										{props.menuLinks[2].map((keys) => (
 											<NavbarMenuLinks
-												Key={keys.id}
 												linkUrl={keys?.node?.url}
 												linkName={keys?.node?.label}
 											/>
 										))}
 									</div>
 								</div>
-								<div className="menuLink">
-									<button className="flex justify-center items-center my-10 mx-auto space-x-4 w-full leading-[2.5rem] border-b border-white border-solid">
+								<div className="bottomSection flex flex-col mx-auto mt-0 px-3 py-8">
+									<div className="flex mt-1 gap-2">
 										<a
-											href=""
-											className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
+											href={phoneNumber}
+											className="text-tiny text-white hover:text-yellow hover:ease-in-out hover:duration-200"
 										>
-											About
+											{props?.navbarContent?.phoneNumber}
 										</a>
-										<span>
-											<img
-												className="w-full h-[17px] m-auto"
-												src="/svg/Navigation Menu Dropdown Arrow.svg"
-											/>
-										</span>
-									</button>
-									<div className="flex flex-col justify-center items-center gap-8">
-										{/* Menu Array from Wordpress */}
-										{props.menuLinks.map((keys) => (
-											<NavbarMenuLinks
-												Key={keys.id}
-												linkUrl={keys?.node?.url}
-												linkName={keys?.node?.label}
-											/>
-										))}
+										<p className="text-tiny text-white">or</p>
+										<a
+											href={phoneNumberOptionTwo}
+											className="text-tiny text-white hover:text-yellow hover:ease-in-out hover:duration-200"
+										>
+											{props?.navbarContent?.phoneNumberOptionTwo},
+										</a>
+										<p className="text-tiny text-white">or email</p>
+										<a
+											href={emailOptionTwo}
+											className="text-tiny text-white hover:text-yellow hover:ease-in-out hover:duration-200"
+										>
+											{props?.navbarContent?.emailOptionTwo}
+										</a>
 									</div>
 								</div>
 							</div>
-							<div className="bottomSection flex flex-col mx-auto mt-0 px-3 py-8">
-								<div className="flex mt-1 gap-1">
-									<a
-										href={phoneNumber}
-										className="text-sm text-white hover:text-yellow hover:ease-in-out hover:duration-200"
-									>
-										{props?.navbarContent?.phoneNumber}
-									</a>
-									<p className="text-sm text-white hover:text-yellow hover:ease-in-out hover:duration-200">
-										or
-									</p>
-									<a
-										href={phoneNumberOptionTwo}
-										className="text-sm text-white hover:text-yellow hover:ease-in-out hover:duration-200"
-									>
-										{props?.navbarContent?.phoneNumberOptionTwo},
-									</a>
-									<p className="text-sm text-white hover:text-yellow hover:ease-in-out hover:duration-200">
-										or email
-									</p>
-									<a
-										href={emailOptionTwo}
-										className="text-sm text-white hover:text-yellow hover:ease-in-out hover:duration-200"
-									>
-										{props?.navbarContent?.emailOptionTwo}
-									</a>
-								</div>
-							</div>
 						</div>
-					</div>
+					) : null}
 				</div>
 			</div>
 		</section>

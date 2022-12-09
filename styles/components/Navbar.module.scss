@@ -19,7 +19,12 @@
 			clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
 
 			.box {
-				justify-content: end;
+				z-index: 50;
+				display: flex;
+				padding: 1.5rem 0;
+				align-items: center;
+				flex-direction: column;
+				justify-content: space-between;
 
 				.btn {
 					width: 80px;

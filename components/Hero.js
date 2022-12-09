@@ -9,7 +9,7 @@ const Hero = (props) => {
 						}
 					`}</style>
 					<div className="title flex justify-center items-center py-10 bg-blue bg-opacity-75">
-						<h1 className="text-white font-bold text-4xl text-center leading-8">
+						<h1 className="text-white font-bold text-[2.5rem] text-center leading-8">
 							{props?.title}
 						</h1>
 					</div>
