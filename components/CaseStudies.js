@@ -1,9 +1,6 @@
-import Link from "next/link";
 import CaseStudiesCards from "./CaseStudiesCards";
 
 const CaseStudies = (props) => {
-	// console.log(props?.caseStudiesContent);
-
 	/* Calculates How many iterations and gets 
     the next object content per iteration */
 	let iterationCount = 0;

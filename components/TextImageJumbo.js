@@ -49,13 +49,13 @@ const TextImageJumbo = (props) => {
 								</div>
 								<div className="mt-8 mx-auto w-[fit-content]">
 									<div className="py-2 px-8 w-full text-white bg-yellow hover:text-orange border-2 border-yellow hover:border-orange hover:bg-white hover:border-solid">
-										<a
+										<Link
+											href={`${props?.contentSectionOne?.buttonLink?.url}`}
 											className="uppercase font-semibold hover:text-orange"
-											href={props[0]?.buttonLink?.url}
-											target={props?.contentSectionOne?.buttonLink?.target}
+											target={`${props?.contentSectionOne?.buttonLink?.target}`}
 										>
 											{props?.contentSectionOne?.buttonLink?.title}
-										</a>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -109,13 +109,13 @@ const TextImageJumbo = (props) => {
 								</div>
 								<div className="mt-8 mx-auto w-[fit-content]">
 									<div className="py-2 px-8 w-full text-white bg-yellow hover:text-orange border-2 border-yellow hover:border-orange hover:bg-white hover:border-solid">
-										<a
+										<Link
+											href={`${props?.contentSectionTwo?.buttonLink?.url}`}
 											className="uppercase font-semibold hover:text-orange"
-											href={props?.contentSectionTwo?.buttonLink?.url}
-											target={props?.contentSectionTwo?.buttonLink?.target}
+											target={`${props?.contentSectionTwo?.buttonLink?.target}`}
 										>
 											{props?.contentSectionTwo?.buttonLink?.title}
-										</a>
+										</Link>
 									</div>
 								</div>
 							</div>
@@ -149,13 +149,13 @@ const TextImageJumbo = (props) => {
 								</div>
 								<div className="buttonSection mt-8 mx-auto w-[fit-content]">
 									<div className="py-2 px-8 w-full text-white bg-yellow hover:text-orange border-2 border-yellow hover:border-orange hover:bg-white hover:border-solid">
-										<a
+										<Link
+											href={`${props?.contentSectionThree?.buttonLink?.url}`}
 											className="uppercase font-semibold hover:text-orange"
-											href={props?.contentSectionThree?.buttonLink?.url}
-											target={props?.contentSectionThree?.buttonLink?.target}
+											target={`${props?.contentSectionThree?.buttonLink?.target}`}
 										>
 											{props?.contentSectionThree?.buttonLink?.title}
-										</a>
+										</Link>
 									</div>
 								</div>
 							</div>

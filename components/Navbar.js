@@ -5,11 +5,6 @@ import NavbarMenuSublinks from "./NavbarMenuSublinks";
 import styles from "../styles/components/Navbar.module.scss";
 
 const Navbar = (props) => {
-	// Phone Number and Email Links
-	const phoneNumber = `tel:${props?.navbarContent?.phoneNumber}`;
-	const phoneNumberOptionTwo = `tel:${props?.navbarContent?.phoneNumberOptionTwo}`;
-	const emailOptionTwo = `mailto:${props?.footerContent?.emailOptionTwo}`;
-
 	// Display Drop Down Navigation
 	const [navbarOpen, setNavbarOpen] = useState(false);
 	function displayDropdownNavbar() {
@@ -34,37 +29,42 @@ const Navbar = (props) => {
 				<div className="content">
 					<div className="flex justify-between items-center pt-4">
 						<div className="z-50">
-							<a href="">
+							<Link href="/">
 								<img
 									className="w-[100%] h-[60px] object-contain"
 									src={props?.navbarContent?.companyLogo?.sourceUrl}
 								/>
-							</a>
+							</Link>
 						</div>
 						<div className="rightSide flex space-x-16">
 							<div className="contactNumber flex space-x-2">
 								<p className="text-yellow text-base font-bold">T:</p>
-								<a
-									href={phoneNumber}
+								<Link
+									href={`tel:${props?.navbarContent?.phoneNumber}`}
 									className="text-blue text-base font-bold hover:text-yellow hover:ease-in-out hover:duration-200"
-									target="blank"
 								>
 									{props?.navbarContent?.phoneNumber}
-								</a>
+								</Link>
 							</div>
 							<div className="socialLinks flex justify-end space-x-6">
-								<a href={props?.navbarContent?.twitterLink} target="blank">
+								<Link
+									href={`${props?.navbarContent?.twitterLink}`}
+									target="blank"
+								>
 									<img
 										className="socialIcons"
 										src="/svg/Twitter Icon Blue.svg"
 									/>
-								</a>
-								<a href={props?.navbarContent?.linkedinLink} target="blank">
+								</Link>
+								<Link
+									href={`${props?.navbarContent?.linkedinLink}`}
+									target="blank"
+								>
 									<img
 										className="socialIcons"
 										src="/svg/LinkedIn Icon Blue.svg"
 									/>
-								</a>
+								</Link>
 							</div>
 						</div>
 					</div>
@@ -105,16 +105,16 @@ const Navbar = (props) => {
 									className="squareXButton p-4 w-[75px] h-[50px] absolute  top-0 right-0 bg-yellow hover:bg-orange"
 									onClick={displayDropdownNavbar}
 								>
-									<a
-										className="uppercase text-white w-[75px] h-[50px]"
+									<Link
 										href="#"
+										className="uppercase text-white w-[75px] h-[50px]"
 									>
 										<img
 											className="mx-auto w-[100%] h-[100%] object-contain"
 											src="/svg/icons/CloseDropDownMenuButton.svg"
 											alt="Close PopUp Icon"
 										/>
-									</a>
+									</Link>
 								</button>
 							</div>
 							<div className="content pt-8 pb-0 px-16 h-[fit-content] flex flex-col z-50">
@@ -124,12 +124,12 @@ const Navbar = (props) => {
 											className="flex justify-center items-center space-x-4 w-full mt-2 py-4 border-b border-white border-solid"
 											onClick={displayServicesSublinks}
 										>
-											<a
+											<Link
 												href="#"
 												className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
 											>
 												Services
-											</a>
+											</Link>
 											<span>
 												<img
 													className="w-full h-[17px] m-auto rotate-[270deg]"
@@ -155,12 +155,12 @@ const Navbar = (props) => {
 											className="flex justify-center items-center space-x-4 w-full py-6 border-b border-white border-solid"
 											onClick={displayAboutSublinks}
 										>
-											<a
+											<Link
 												href="#"
 												className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
 											>
 												About
-											</a>
+											</Link>
 											<span>
 												<img
 													className="w-full h-[17px] m-auto rotate-[270deg]"
@@ -190,26 +190,26 @@ const Navbar = (props) => {
 								</div>
 								<div className="bottomSection flex flex-col mx-auto mt-0 px-3 py-8">
 									<div className="flex mt-1 gap-2">
-										<a
-											href={phoneNumber}
+										<Link
+											href={`tel:${props?.navbarContent?.phoneNumber}`}
 											className="text-tiny text-white hover:text-yellow hover:ease-in-out hover:duration-200"
 										>
 											{props?.navbarContent?.phoneNumber}
-										</a>
+										</Link>
 										<p className="text-tiny text-white">or</p>
-										<a
-											href={phoneNumberOptionTwo}
+										<Link
+											href={`tel:${props?.navbarContent?.phoneNumberOptionTwo}`}
 											className="text-tiny text-white hover:text-yellow hover:ease-in-out hover:duration-200"
 										>
-											{props?.navbarContent?.phoneNumberOptionTwo},
-										</a>
+											{props?.navbarContent?.phoneNumberOptionTwo}
+										</Link>
 										<p className="text-tiny text-white">or email</p>
-										<a
-											href={emailOptionTwo}
+										<Link
+											href={`mailto:${props?.footerContent?.emailOptionTwo}`}
 											className="text-tiny text-white hover:text-yellow hover:ease-in-out hover:duration-200"
 										>
 											{props?.navbarContent?.emailOptionTwo}
-										</a>
+										</Link>
 									</div>
 								</div>
 							</div>

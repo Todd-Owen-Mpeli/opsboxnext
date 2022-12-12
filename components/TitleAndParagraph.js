@@ -66,13 +66,13 @@ const TitleAndParagraph = (props) => {
 							</p>
 						</div>
 						<div className={displayButtonOption}>
-							<a
+							<Link
+								href={`${props?.buttonLink?.url}`}
 								className="uppercase text-sm tracking-[0.15rem]"
-								href={props?.buttonLink?.url}
-								target={props?.buttonLink?.target}
+								target={`${props?.buttonLink?.target}`}
 							>
 								{props?.buttonLink?.title}
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>

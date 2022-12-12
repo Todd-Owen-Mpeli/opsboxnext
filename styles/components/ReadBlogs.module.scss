@@ -1,0 +1,80 @@
+// Imports
+@import "../fonts";
+@import "../colors";
+
+.readBlogs {
+	z-index: 50;
+
+	.readBlogsCard {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: stretch;
+		background-size: cover;
+		background-position: 50%;
+		background-repeat: no-repeat;
+
+		.Image {
+			height: 350px;
+			display: block;
+		}
+
+		.hiddenTextContent {
+			display: none;
+			height: 800px;
+			padding: 2.25rem;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.textSection {
+			width: 100%;
+			height: 450px;
+			display: flex;
+			padding: 2.5rem;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		&:hover {
+			.hiddenTextContent {
+				transition: all 0.2s ease-in-out;
+				display: flex;
+			}
+
+			.Image,
+			.textSection {
+				transition: all 0.2s ease-in-out;
+				display: none;
+			}
+		}
+	}
+}
+
+/* Screen (1366px) */
+@media screen and (max-width: 1366px) {
+	.readBlogs {
+		.readBlogsCard:nth-child(5) {
+			display: none;
+		}
+	}
+}
+
+/* Screen (1024px) */
+@media screen and (max-width: 1024px) {
+	.readBlogs {
+		.readBlogsCard:nth-child(4) {
+			display: none;
+		}
+	}
+}
+
+/* Screen (640px) */
+@media screen and (max-width: 640px) {
+	.readBlogs {
+		.readBlogsCard:nth-child(3) {
+			display: none;
+		}
+	}
+}

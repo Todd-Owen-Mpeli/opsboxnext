@@ -1,6 +1,6 @@
-const CaseStudiesCards = (props) => {
-	// console.log(props);
+import Link from "next/link";
 
+const CaseStudiesCards = (props) => {
 	function createTrimmedParagraphMarkup() {
 		return {
 			__html: `${props?.content.substring(0, 200)}...`,
@@ -39,9 +39,11 @@ const CaseStudiesCards = (props) => {
 							<h5 className="uppercase text-white">ARTICLE</h5>
 
 							{/* <!--  To get The Latest Case study --> */}
-							<h2 className="uppercase font-semibold text-white">
-								{props?.title}
-							</h2>
+							<Link href={`${props?.link}`}>
+								<h2 className="uppercase font-semibold text-white">
+									{props?.title}
+								</h2>
+							</Link>
 							<div
 								className="my-6 text-left text-white text-tiny leading-[1.5rem]"
 								dangerouslySetInnerHTML={createFullParagraphMarkup()}
@@ -50,18 +52,18 @@ const CaseStudiesCards = (props) => {
 					</div>
 					<div className="pt-1 justify-end">
 						<div className="w-full flex">
-							<a
+							<Link
+								href={`${props?.link}`}
 								className="uppercase font-semibold text-white hover:text-orange hover:ease-in-out hover:duration-200"
-								href={props?.link}
 							>
 								Read More
-							</a>
-							<a className="my-auto ml-2" href={props?.link}>
+							</Link>
+							<Link href={`${props?.link}`} className="my-auto ml-2">
 								<img
 									src="/svg/threeContentSquares/readMoreWhiteArrow.svg"
 									alt="Arrow"
 								/>
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -71,9 +73,11 @@ const CaseStudiesCards = (props) => {
 						<h5 className="uppercase text-white text-sm tracking-[0.25rem]">
 							CASE STUDY
 						</h5>
-						<h2 className="uppercase mt-3 font-semibold text-white text-lg md:text-xl">
-							{props?.title}
-						</h2>
+						<Link href={`${props?.link}`}>
+							<h2 className="uppercase mt-3 font-semibold text-white text-lg md:text-xl">
+								{props?.title}
+							</h2>
+						</Link>
 						<div
 							className="my-6 text-left text-white text-tiny leading-[1.5rem]"
 							dangerouslySetInnerHTML={createTrimmedParagraphMarkup()}
@@ -81,18 +85,18 @@ const CaseStudiesCards = (props) => {
 					</div>
 					<div className="pt-10">
 						<div className="w-full flex">
-							<a
+							<Link
+								href={`${props?.link}`}
 								className="uppercase font-semibold text-white hover:text-orange hover:ease-in-out hover:duration-200"
-								href={props?.link}
 							>
 								Read More
-							</a>
-							<a className="my-auto ml-2" href={props?.link}>
+							</Link>
+							<Link href={`${props?.link}`} className="my-auto ml-2">
 								<img
 									src="/svg/threeContentSquares/readMoreWhiteArrow.svg"
 									alt="Arrow"
 								/>
-							</a>
+							</Link>
 						</div>
 					</div>
 				</div>

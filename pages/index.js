@@ -14,6 +14,8 @@ import styles from "../styles/Home.module.scss";
 import TextImageJumbo from "../components/TextImageJumbo";
 import CaseStudies from "../components/CaseStudies";
 import Testimonial from "../components/Testimonial";
+import Awards from "../components/Awards";
+import ReadBlogs from "../components/ReadBlogs";
 
 export default function Home({
 	pageTitle,
@@ -21,11 +23,10 @@ export default function Home({
 	navbarMenu,
 	homePageContent,
 	caseStudiesContent,
+	readBlogsContent,
 	footerContent,
 	footerMenu,
 }) {
-	// console.log(homePageContent);
-
 	return (
 		<>
 			<Head>
@@ -145,6 +146,27 @@ export default function Home({
 					displayBackgroundAesthetics={
 						homePageContent?.testimonialSlider?.displayBackgroundAesthetics
 					}
+				/>
+
+				{/* AWARDS */}
+				<Awards
+					title={homePageContent?.awards?.title}
+					buttonLink={homePageContent?.awards?.buttonLink}
+					paragraphOne={homePageContent?.awards?.paragraphOne}
+					paragraphTwo={homePageContent?.awards?.paragraphTwo}
+					awardsOneImage={homePageContent?.awards?.awardsOne?.sourceUrl}
+					awardsTwoImage={homePageContent?.awards?.awardsTwo?.sourceUrl}
+					// Display Options
+					displayStylingOptions={homePageContent?.awards?.displayStylingOptions}
+					displayButtonOptions={homePageContent?.awards?.displayButtonOptions}
+					selectBackgroundAestheticsOptions={
+						homePageContent?.awards?.selectBackgroundAestheticsOptions
+					}
+				/>
+				{/* READ BLOGS */}
+				<ReadBlogs
+					title={homePageContent?.readOurBlogsTitle}
+					readBlogsContent={readBlogsContent}
 				/>
 			</main>
 
@@ -294,57 +316,7 @@ export async function getStaticProps() {
 									paragraph
 								}
 							}
-							readOurBlogs {
-								title
-								columnOne {
-									title
-									paragraph
-									buttonLink {
-										url
-										title
-										target
-									}
-									image {
-										sourceUrl
-									}
-								}
-								columnTwo {
-									title
-									paragraph
-									buttonLink {
-										url
-										title
-										target
-									}
-									image {
-										sourceUrl
-									}
-								}
-								columnThree {
-									title
-									paragraph
-									buttonLink {
-										url
-										title
-										target
-									}
-									image {
-										sourceUrl
-									}
-								}
-								columnFour {
-									title
-									paragraph
-									buttonLink {
-										url
-										title
-										target
-									}
-									image {
-										sourceUrl
-									}
-								}
-							}
+							readOurBlogsTitle
 							heroSection {
 								title
 								heroImage {
@@ -456,6 +428,28 @@ export async function getStaticProps() {
 		}
 	`;
 
+	const getReadBlogsContent = gql`
+		{
+			posts(
+				where: {orderby: {field: DATE, order: DESC}, status: PUBLISH}
+				first: 4
+			) {
+				edges {
+					node {
+						title
+						link
+						featuredImage {
+							node {
+								sourceUrl
+							}
+						}
+						content(format: RENDERED)
+					}
+				}
+			}
+		}
+	`;
+
 	const getFooterContent = gql`
 		{
 			themesOptions(
@@ -506,6 +500,10 @@ export async function getStaticProps() {
 		query: getHomePageContent,
 	});
 
+	const responseReadBlogs = await client.query({
+		query: getReadBlogsContent,
+	});
+
 	const responseFooter = await client.query({
 		query: getFooterContent,
 	});
@@ -523,6 +521,7 @@ export async function getStaticProps() {
 			],
 			homePageContent: response.data?.pages?.edges[0]?.node?.homePage,
 			caseStudiesContent: response.data?.caseStudies?.edges,
+			readBlogsContent: responseReadBlogs?.data?.posts?.edges,
 			footerContent:
 				responseFooter.data?.themesOptions?.edges[0]?.node?.themesOptions,
 			footerMenu: responseFooter.data?.menuItems?.edges,

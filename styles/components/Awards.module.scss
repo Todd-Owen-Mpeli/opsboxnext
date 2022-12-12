@@ -1,0 +1,82 @@
+// Imports
+@import "../fonts";
+@import "../colors";
+
+.awards {
+	padding: 2rem;
+	overflow: hidden;
+
+	.yellowDiamond {
+		top: -70px;
+		z-index: 50;
+		right: 150px;
+		display: flex;
+		padding: 1rem;
+		border-radius: 10%;
+		border-right: 1rem;
+		position: relative;
+		flex-direction: column;
+		align-items: flex-start;
+		transform: rotate(45deg);
+		justify-content: flex-start;
+		border: 0.15rem solid $primary_yellow;
+	}
+}
+
+/* Screen (1536px) */
+@media screen and (max-width: 1536px) {
+	.awards {
+		padding: 1rem 1.5rem;
+
+		.yellowDiamond {
+			top: -40px;
+			left: 25px;
+		}
+	}
+}
+
+/* Screen (1440px) */
+@media screen and (max-width: 1440px) {
+	.awards {
+		.yellowDiamond {
+			top: -60px;
+			left: 0px;
+		}
+	}
+}
+
+/* Screen (1366px) */
+@media screen and (max-width: 1366px) {
+	.awards {
+		.yellowDiamond {
+			top: -50px;
+			left: -5px;
+		}
+	}
+}
+
+/* Screen (1280px) */
+@media screen and (max-width: 1280px) {
+	.awards {
+		.yellowDiamond {
+			display: none;
+		}
+	}
+}
+
+/* Screen (1024px) */
+@media screen and (max-width: 1024px) {
+	//  <========== AWARDS ==========>
+	.awards {
+		.yellowDiamond {
+			display: none;
+		}
+	}
+}
+
+/* Screen (375px) */
+@media screen and (max-width: 375px) {
+	.awards {
+		padding: 2rem 1rem;
+	}
+}

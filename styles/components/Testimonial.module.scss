@@ -1,4 +1,5 @@
 // Imports
+@import "../fonts";
 @import "../colors";
 
 .testimonialSlider {
@@ -13,5 +14,13 @@
 		padding: 0 2rem;
 		align-items: center;
 		justify-content: center;
+
+		.testimonialSliderContent {
+			padding: 2rem 1rem;
+
+			h2 {
+				font-family: $fontStyle_option1;
+			}
+		}
 	}
 }

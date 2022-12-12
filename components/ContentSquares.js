@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const ContentSquares = (props) => {
 	/* Allows the user to 
     display the Title Section*/
@@ -86,13 +88,13 @@ const ContentSquares = (props) => {
 								</div>
 								<div className="relative flex flex-col py-10 px-20">
 									<button className="w-[fit-content] py-2 px-8 mx-auto bg-yellow hover:bg-transparent hover: hover:border-white border-2 border-yellow">
-										<a
+										<Link
+											href={`${props?.columnOne?.buttonLink?.url}`}
 											className="uppercase text-white text-sm tracking-[0.15rem]"
-											href={props?.columnOne?.buttonLink?.url}
-											target={props?.columnOne?.buttonLink?.target}
+											target={`${props?.columnOne?.buttonLink?.target}`}
 										>
 											{props?.columnOne?.buttonLink?.title}
-										</a>
+										</Link>
 									</button>
 								</div>
 							</div>
@@ -122,13 +124,13 @@ const ContentSquares = (props) => {
 								</div>
 								<div className="relative flex flex-col py-10 px-20">
 									<button className="w-[fit-content] py-2 px-8 mx-auto bg-yellow hover:bg-transparent hover: hover:border-white border-2 border-yellow">
-										<a
+										<Link
+											href={`${props?.columnTwo?.buttonLink?.url}`}
 											className="uppercase text-white text-sm tracking-[0.15rem]"
-											href={props?.columnTwo?.buttonLink?.url}
-											target={props?.columnTwo?.buttonLink?.target}
+											target={`${props?.columnTwo?.buttonLink?.target}`}
 										>
 											{props?.columnTwo?.buttonLink?.title}
-										</a>
+										</Link>
 									</button>
 								</div>
 							</div>
@@ -158,13 +160,13 @@ const ContentSquares = (props) => {
 								</div>
 								<div className="relative flex flex-col py-10 px-20">
 									<button className="w-[fit-content] py-2 px-8 mx-auto bg-yellow hover:bg-transparent hover: hover:border-white border-2 border-yellow">
-										<a
+										<Link
+											href={`${props?.columnThree?.buttonLink?.url}`}
 											className="uppercase text-white text-sm tracking-[0.15rem]"
-											href={props?.columnThree?.buttonLink?.url}
-											target={props?.columnThree?.buttonLink?.target}
+											target={`${props?.columnThree?.buttonLink?.target}`}
 										>
 											{props?.columnThree?.buttonLink?.title}
-										</a>
+										</Link>
 									</button>
 								</div>
 							</div>
@@ -195,13 +197,13 @@ const ContentSquares = (props) => {
 								</div>
 								<div className="relative flex flex-col py-10 px-20">
 									<button className="w-[fit-content] py-2 px-8 mx-auto bg-yellow hover:bg-transparent hover: hover:border-white border-2 border-yellow">
-										<a
+										<Link
+											href={`${props?.columnFour?.buttonLink?.url}`}
 											className="uppercase text-white text-sm tracking-[0.15rem]"
-											href={props?.columnFour?.buttonLink?.url}
-											target={props?.columnFour?.buttonLink?.target}
+											target={`${props?.columnFour?.buttonLink?.target}`}
 										>
 											{props?.columnFour?.buttonLink?.title}
-										</a>
+										</Link>
 									</button>
 								</div>
 							</div>

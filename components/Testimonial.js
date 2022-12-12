@@ -1,9 +1,7 @@
-import styles from "../styles/components/Testimonial.module.scss";
 import TestimonialCard from "./TestimonialCard";
+import styles from "../styles/components/Testimonial.module.scss";
 
 const Testimonial = (props) => {
-	console.log(props?.testimonialContent);
-
 	/* Allows the user to display the
      Three Background Squares Aesthetics */
 	let displayThreeSquaresOption;
@@ -14,25 +12,27 @@ const Testimonial = (props) => {
 	}
 
 	return (
-		<section className={styles.testimonialSlider}>
-			<div className="container mx-auto">
-				<div className="flex flex-col">
-					<h5 className="text-center text-base text-black font-[500] uppercase">
-						Testimonial
-					</h5>
-					<h2 className="text-center text-5xl text-blue font-[400] tracking-tighter">
-						{props?.title}
-					</h2>
-				</div>
-				<div className={styles.bottomSection}>
-					{/* Menu Array from Wordpress */}
-					{props?.testimonialContent.map((keys) => (
-						<TestimonialCard
-							Key={keys?.id}
-							personName={keys?.personName}
-							paragraph={keys?.paragraph}
-						/>
-					))}
+		<section className="py-6">
+			<div className={styles.testimonialSlider}>
+				<div className="container mx-auto">
+					<div className="flex flex-col">
+						<h5 className="text-center text-base text-black font-[500] uppercase">
+							Testimonial
+						</h5>
+						<h2 className="text-center text-5xl text-blue font-[400] tracking-[0.05rem]">
+							{props?.title}
+						</h2>
+					</div>
+					<div className={styles.bottomSection}>
+						{/* Menu Array from Wordpress */}
+						{props?.testimonialContent.map((keys) => (
+							<TestimonialCard
+								Key={keys?.id}
+								personName={keys?.personName}
+								paragraph={keys?.paragraph}
+							/>
+						))}
+					</div>
 				</div>
 			</div>
 
