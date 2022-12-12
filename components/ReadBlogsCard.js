@@ -1,18 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import Image from "next/image";
 import styles from "../styles/components/ReadBlogs.module.scss";
 
 const ReadBlogsCard = (props) => {
-	function createTrimmedParagraphMarkup() {
-		return {
-			__html: `${props?.content.substring(0, 200)}...`,
-		};
-	}
-
 	function createFullParagraphMarkup() {
 		return {
 			__html: `${props?.content.substring(0, 800)}...`,
+		};
+	}
+	function createTrimmedParagraphMarkup() {
+		return {
+			__html: `${props?.content.substring(0, 250)}...`,
 		};
 	}
 

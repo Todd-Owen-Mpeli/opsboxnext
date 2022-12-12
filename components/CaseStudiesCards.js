@@ -1,4 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import styles from "../styles/components/CaseStudies.module.scss";
 
 const CaseStudiesCards = (props) => {
 	function createTrimmedParagraphMarkup() {
@@ -15,42 +17,44 @@ const CaseStudiesCards = (props) => {
 
 	return (
 		<>
-			<div className="cardItem flex flex-col h-full">
-				<style jsx>{`
-					.cardItem {
-						background-image: url("${props?.featuredImage}");
-						background-position: 100%;
-						background-repeat: no-repeat;
-						background-size: cover;
-					}
-				`}</style>
-				<div className="Image h-[400px]">
+			<div
+				className={styles.caseStudiesCards}
+				style={{
+					background: `linear-gradient(
+								0deg,
+								rgba(4, 44, 86, 0.80),
+								rgba(4, 44, 86, 0.80)
+							), url(${props?.featuredImage})`,
+					backgroundPosition: "100%",
+					backgroundRepeat: "no-repeat",
+					backgroundSize: "cover",
+				}}
+			>
+				<div className={styles.Image}>
 					<img
 						className="w-full h-full object-cover"
 						src={props?.featuredImage}
-						alt="Image One"
+						alt={`${props?.title} Image`}
 					/>
 				</div>
 
 				{/* Displays on hover */}
-				<div className="hiddenTextContent flex-col p-16 hidden">
-					<div className="content">
-						<article className="flex flex-col">
-							<h5 className="uppercase text-white">ARTICLE</h5>
+				<div className={styles.hiddenTextContent}>
+					<article className="flex flex-col">
+						<h5 className="uppercase text-white">ARTICLE</h5>
 
-							{/* <!--  To get The Latest Case study --> */}
-							<Link href={`${props?.link}`}>
-								<h2 className="uppercase font-semibold text-white">
-									{props?.title}
-								</h2>
-							</Link>
-							<div
-								className="my-6 text-left text-white text-tiny leading-[1.5rem]"
-								dangerouslySetInnerHTML={createFullParagraphMarkup()}
-							></div>
-						</article>
-					</div>
-					<div className="pt-1 justify-end">
+						{/* <!--  To get The Latest Case study --> */}
+						<Link href={`${props?.link}`}>
+							<h2 className="uppercase mt-3 font-semibold text-white text-medium md:text-lg">
+								{props?.title}
+							</h2>
+						</Link>
+						<div
+							className="my-6 text-left text-white text-tiny leading-[1.5rem]"
+							dangerouslySetInnerHTML={createFullParagraphMarkup()}
+						></div>
+					</article>
+					<div className="pt-1">
 						<div className="w-full flex">
 							<Link
 								href={`${props?.link}`}
@@ -68,7 +72,7 @@ const CaseStudiesCards = (props) => {
 					</div>
 				</div>
 
-				<div className="h-[100%] flex flex-col justify-between p-8 md:p-16 bg-blue">
+				<div className={styles.textSection}>
 					<div className="text-left">
 						<h5 className="uppercase text-white text-sm tracking-[0.25rem]">
 							CASE STUDY

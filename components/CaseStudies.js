@@ -1,4 +1,5 @@
 import CaseStudiesCards from "./CaseStudiesCards";
+import styles from "../styles/components/CaseStudies.module.scss";
 
 const CaseStudies = (props) => {
 	/* Calculates How many iterations and gets 
@@ -6,9 +7,9 @@ const CaseStudies = (props) => {
 	let iterationCount = 0;
 
 	return (
-		<section className="caseStudies">
+		<section className={styles.caseStudies}>
 			<div className="content flex flex-col justify-center items-center">
-				<div className="topSection flex flex-col">
+				<div className="flex flex-col">
 					<h5 className="uppercase text-center text-grey text-xs">
 						OPS-BOX WAY
 					</h5>
@@ -19,7 +20,7 @@ const CaseStudies = (props) => {
 						{props?.paragraph}
 					</p>
 				</div>
-				<div className="bottomSection pt-4 flex flex-col lg:grid lg:grid-cols-2 xl:grid xl:grid-cols-3 gap-1 justify-center items-center">
+				<div className="pt-4 flex flex-col lg:grid lg:grid-cols-2 xl:grid xl:grid-cols-3 gap-1 justify-center items-center">
 					{/* Menu Array from Wordpress */}
 					{props?.caseStudiesContent.map((keys) => (
 						<CaseStudiesCards

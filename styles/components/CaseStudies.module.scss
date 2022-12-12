@@ -1,0 +1,61 @@
+// Imports
+@import "../fonts";
+@import "../colors";
+
+.caseStudiesCards {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.Image {
+		height: 400px;
+		display: block;
+	}
+
+	.hiddenTextContent {
+		display: none;
+		height: 100%;
+		padding: 4rem;
+	}
+
+	.textSection {
+		height: 450px;
+		display: flex;
+		padding: 4rem;
+		flex-direction: column;
+		justify-content: space-between;
+		background-color: $primary_Blue;
+	}
+
+	&:hover {
+		.hiddenTextContent {
+			transition: all 0.2s ease-in-out;
+			height: 800px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.Image,
+		.textSection {
+			transition: all 0.2s ease-in-out;
+			display: none;
+		}
+	}
+}
+
+/* Screen (834px) */
+@media screen and (max-width: 834px) {
+	.textSection {
+		padding: 2rem;
+	}
+}
+
+/* Screen (640px) */
+@media screen and (max-width: 640px) {
+	.caseStudiesCards {
+		.hiddenTextContent {
+			height: 800px;
+		}
+	}
+}
