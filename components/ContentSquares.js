@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
 const ContentSquares = (props) => {
@@ -63,22 +64,21 @@ const ContentSquares = (props) => {
 					</div>
 
 					<div className={gridSectionDisplay}>
-						<div className={displayNumberCards}>
-							<style jsx>{`
-								.singleContentSquare {
-									background: linear-gradient(
-											0deg,
-											rgba(13, 23, 42, 0.45),
-											rgba(13, 23, 42, 0.45)
-										),
-										url("${props?.columnOne?.backgroundImage?.sourceUrl}");
-									background-position: 50%;
-									background-repeat: no-repeat;
-									background-size: cover;
-								}
-							`}</style>
+						<div
+							className={displayNumberCards}
+							style={{
+								background: `linear-gradient(
+								0deg,
+								rgba(4, 44, 86, 0.45),
+								rgba(4, 44, 86, 0.45)
+							), url(${props?.columnOne?.backgroundImage?.sourceUrl})`,
+								backgroundPosition: "center",
+								backgroundRepeat: "no-repeat",
+								backgroundSize: "cover",
+							}}
+						>
 							<div className="content flex flex-col h-full lg:h-[500px] justify-between">
-								<div className="p-20 pb-0">
+								<div className="py-20 px-10 sm:p-20 pb-0">
 									<h2 className="text-white text-center uppercase tracking-[0.25rem]">
 										{props?.columnOne?.title}
 									</h2>
@@ -99,22 +99,21 @@ const ContentSquares = (props) => {
 								</div>
 							</div>
 						</div>
-						<div className={displayNumberCards}>
-							<style jsx>{`
-								.singleContentSquare {
-									background: linear-gradient(
-											0deg,
-											rgba(13, 23, 42, 0.45),
-											rgba(13, 23, 42, 0.45)
-										),
-										url("${props?.columnTwo?.backgroundImage?.sourceUrl}");
-									background-position: 50%;
-									background-repeat: no-repeat;
-									background-size: cover;
-								}
-							`}</style>
+						<div
+							className={displayNumberCards}
+							style={{
+								background: `linear-gradient(
+								0deg,
+								rgba(4, 44, 86, 0.45),
+								rgba(4, 44, 86, 0.45)
+							), url(${props?.columnTwo?.backgroundImage?.sourceUrl})`,
+								backgroundPosition: "center",
+								backgroundRepeat: "no-repeat",
+								backgroundSize: "cover",
+							}}
+						>
 							<div className="content flex flex-col justify-between h-full lg:h-[500px]">
-								<div className="p-20 pb-0">
+								<div className="py-20 px-10 sm:p-20 pb-0">
 									<h2 className="text-white text-center uppercase tracking-[0.25rem]">
 										{props?.columnTwo?.title}
 									</h2>
@@ -135,22 +134,21 @@ const ContentSquares = (props) => {
 								</div>
 							</div>
 						</div>
-						<div className={displayNumberCards}>
-							<style jsx>{`
-								.singleContentSquare {
-									background: linear-gradient(
-											0deg,
-											rgba(13, 23, 42, 0.45),
-											rgba(13, 23, 42, 0.45)
-										),
-										url("${props?.columnThree?.backgroundImage?.sourceUrl}");
-									background-position: 50%;
-									background-repeat: no-repeat;
-									background-size: cover;
-								}
-							`}</style>
+						<div
+							className={displayNumberCards}
+							style={{
+								background: `linear-gradient(
+								0deg,
+								rgba(4, 44, 86, 0.45),
+								rgba(4, 44, 86, 0.45)
+							), url(${props?.columnThree?.backgroundImage?.sourceUrl})`,
+								backgroundPosition: "center",
+								backgroundRepeat: "no-repeat",
+								backgroundSize: "cover",
+							}}
+						>
 							<div className="content flex flex-col justify-between h-full lg:h-[500px]">
-								<div className="p-20 pb-0">
+								<div className="py-20 px-10 sm:p-20 pb-0">
 									<h2 className="text-white text-center uppercase tracking-[0.25rem]">
 										{props?.columnThree?.title}
 									</h2>
@@ -171,23 +169,22 @@ const ContentSquares = (props) => {
 								</div>
 							</div>
 						</div>
-						<div className={displayNumberCards}>
-							<style jsx>{`
-								.singleContentSquare {
-									display: ${displayFourthCard};
-									background: linear-gradient(
-											0deg,
-											rgba(13, 23, 42, 0.45),
-											rgba(13, 23, 42, 0.45)
-										),
-										url("${props?.columnFour?.backgroundImage?.sourceUrl}");
-									background-position: 50%;
-									background-repeat: no-repeat;
-									background-size: cover;
-								}
-							`}</style>
+						<div
+							className={displayNumberCards}
+							style={{
+								display: `${displayFourthCard}`,
+								background: `linear-gradient(
+								0deg,
+								rgba(4, 44, 86, 0.45),
+								rgba(4, 44, 86, 0.45)
+							), url(${props?.columnFour?.backgroundImage?.sourceUrl})`,
+								backgroundPosition: "center",
+								backgroundRepeat: "no-repeat",
+								backgroundSize: "cover",
+							}}
+						>
 							<div className="content flex flex-col justify-between h-full lg:h-[500px]">
-								<div className="p-20 pb-0">
+								<div className="py-20 px-10 sm:p-20 pb-0">
 									<h2 className="text-white text-center uppercase tracking-[0.25rem]">
 										{props?.columnFour?.title}
 									</h2>

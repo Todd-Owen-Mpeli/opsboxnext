@@ -42,6 +42,9 @@ const ReadBlogsCard = (props) => {
 								rgba(4, 44, 86, 0.80),
 								rgba(4, 44, 86, 0.80)
 							), url(${props?.featuredImage})`,
+				backgroundPosition: "center",
+				backgroundRepeat: "no-repeat",
+				backgroundSize: "cover",
 			}}
 		>
 			<div className={styles.Image}>
@@ -86,7 +89,7 @@ const ReadBlogsCard = (props) => {
 					<div className="w-full h-full object-cover flex">
 						<Link
 							href={`${props?.link}`}
-							className="uppercase font-semibold text-white hover:text-blue hover:ease-in-out hover:duration-200"
+							className="uppercase font-semibold text-white hover:text-orange hover:ease-in-out hover:duration-200"
 						>
 							Read More
 						</Link>

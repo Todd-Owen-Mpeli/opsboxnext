@@ -136,7 +136,7 @@ export default function Home({
 				/>
 
 				{/* TESTIMONIAL */}
-				<Testimonial
+				{/* <Testimonial
 					// Content
 					title={homePageContent?.testimonialSlider?.title}
 					testimonialContent={
@@ -146,7 +146,7 @@ export default function Home({
 					displayBackgroundAesthetics={
 						homePageContent?.testimonialSlider?.displayBackgroundAesthetics
 					}
-				/>
+				/> */}
 
 				{/* AWARDS */}
 				<Awards

@@ -3,8 +3,9 @@
 @import "../colors";
 
 .awards {
-	padding: 2rem;
 	overflow: hidden;
+	padding: 2.5rem 2rem;
+	background: transparent;
 
 	.yellowDiamond {
 		top: -70px;
@@ -26,7 +27,7 @@
 /* Screen (1536px) */
 @media screen and (max-width: 1536px) {
 	.awards {
-		padding: 1rem 1.5rem;
+		// padding: 1rem 1.5rem;
 
 		.yellowDiamond {
 			top: -40px;

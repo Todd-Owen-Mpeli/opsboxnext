@@ -4,6 +4,7 @@
 
 .readBlogs {
 	z-index: 50;
+	position: relative;
 
 	.readBlogsCard {
 		width: 100%;
@@ -11,9 +12,6 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: stretch;
-		background-size: cover;
-		background-position: 100%;
-		background-repeat: no-repeat;
 
 		.Image {
 			height: 350px;

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import {useState} from "react";
 import NavbarMenuLinks from "./NavbarMenuLinks";
@@ -27,7 +29,7 @@ const Navbar = (props) => {
 		<section className={styles.navbar}>
 			<div className="container mx-auto">
 				<div className="content">
-					<div className="flex justify-between items-center pt-4">
+					<div className="flex justify-between items-center pt-4 pb-4 lg:pb-0 px-10 gap-x-10 sm:gap-x-0">
 						<div className="z-50">
 							<Link href="/">
 								<img
@@ -36,17 +38,28 @@ const Navbar = (props) => {
 								/>
 							</Link>
 						</div>
-						<div className="rightSide flex space-x-16">
-							<div className="contactNumber flex space-x-2">
-								<p className="text-yellow text-base font-bold">T:</p>
+						<div className="rightSide flex gap-x-16">
+							<div className="flex space-x-2">
+								<p className="hidden sm:block text-yellow text-base font-bold">
+									T:
+								</p>
 								<Link
 									href={`tel:${props?.navbarContent?.phoneNumber}`}
-									className="text-blue text-base font-bold hover:text-yellow hover:ease-in-out hover:duration-200"
+									className="hidden sm:block text-blue text-base font-bold hover:text-yellow hover:ease-in-out hover:duration-200"
 								>
 									{props?.navbarContent?.phoneNumber}
 								</Link>
+								<Link
+									href={`tel:${props?.navbarContent?.phoneNumber}`}
+									className="block sm:hidden text-blue text-base font-bold hover:text-yellow hover:ease-in-out hover:duration-200"
+								>
+									<img
+										className="w-[25px] h-[25px] text-blue"
+										src="/svg/mobilePhoneIcon.png"
+									/>
+								</Link>
 							</div>
-							<div className="socialLinks flex justify-end space-x-6">
+							<div className="hidden md:flex justify-end space-x-6">
 								<Link
 									href={`${props?.navbarContent?.twitterLink}`}
 									target="blank"
@@ -77,9 +90,9 @@ const Navbar = (props) => {
 							{/* <!-- Background Aesthetics (White Square top-left) --> */}
 							<div
 								id="whiteNavigationBackgroundSquare"
-								className="whiteNavigationBackgroundSquare relative"
+								className="relative hidden xl:block"
 							>
-								<div className="pageBackgroundIcons absolute left-[225px] top-[-125px]">
+								<div className="absolute left-[225px] top-[-125px]">
 									<img
 										className="mx-auto w-[100%] h-[300px] object-contain"
 										src="/svg/headerSection/whiteSquare.svg"
@@ -100,7 +113,7 @@ const Navbar = (props) => {
 					</div>
 					{navbarOpen ? (
 						<div className="dropdownNavbar absolute right-0 justify-end item-center w-full lg:w-[36%] bg-blue bg-opacity-75 z-50">
-							<div className="closeMenuButton relative flex justify-center h-full">
+							<div className="relative flex justify-center h-full">
 								<button
 									className="squareXButton p-4 w-[75px] h-[50px] absolute  top-0 right-0 bg-yellow hover:bg-orange"
 									onClick={displayDropdownNavbar}
@@ -182,31 +195,34 @@ const Navbar = (props) => {
 										{/* Menu Array from Wordpress */}
 										{props.menuLinks[2].map((keys) => (
 											<NavbarMenuLinks
+												key={keys.id}
 												linkUrl={keys?.node?.url}
 												linkName={keys?.node?.label}
 											/>
 										))}
 									</div>
 								</div>
-								<div className="bottomSection flex flex-col mx-auto mt-0 px-3 py-8">
-									<div className="flex mt-1 gap-2">
+								<div className="flex flex-col mx-auto mt-0 p-0 pb-8 sm:px-3 sm:py-8">
+									<div className="flex flex-col sm:flex-row mt-1 gap-2">
 										<Link
 											href={`tel:${props?.navbarContent?.phoneNumber}`}
-											className="text-tiny text-white hover:text-yellow hover:ease-in-out hover:duration-200"
+											className="text-tiny text-white text-center sm:text-left hover:text-yellow hover:ease-in-out hover:duration-200"
 										>
 											{props?.navbarContent?.phoneNumber}
 										</Link>
-										<p className="text-tiny text-white">or</p>
+										<p className="text-tiny text-white hidden sm:block">or</p>
 										<Link
 											href={`tel:${props?.navbarContent?.phoneNumberOptionTwo}`}
-											className="text-tiny text-white hover:text-yellow hover:ease-in-out hover:duration-200"
+											className="text-tiny text-white text-center sm:text-left hover:text-yellow hover:ease-in-out hover:duration-200"
 										>
 											{props?.navbarContent?.phoneNumberOptionTwo}
 										</Link>
-										<p className="text-tiny text-white">or email</p>
+										<p className="text-tiny text-white hidden sm:block">
+											or email
+										</p>
 										<Link
 											href={`mailto:${props?.footerContent?.emailOptionTwo}`}
-											className="text-tiny text-white hover:text-yellow hover:ease-in-out hover:duration-200"
+											className="text-tiny text-white text-center sm:text-left  hover:text-yellow hover:ease-in-out hover:duration-200"
 										>
 											{props?.navbarContent?.emailOptionTwo}
 										</Link>

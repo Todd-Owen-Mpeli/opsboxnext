@@ -25,7 +25,7 @@ const CaseStudiesCards = (props) => {
 								rgba(4, 44, 86, 0.80),
 								rgba(4, 44, 86, 0.80)
 							), url(${props?.featuredImage})`,
-					backgroundPosition: "100%",
+					backgroundPosition: "center",
 					backgroundRepeat: "no-repeat",
 					backgroundSize: "cover",
 				}}
