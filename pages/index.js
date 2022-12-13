@@ -151,7 +151,7 @@ export default function Home({
 	);
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const getNavbarContent = gql`
 		{
 			generalSettings {

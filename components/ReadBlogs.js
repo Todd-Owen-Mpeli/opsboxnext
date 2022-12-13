@@ -21,11 +21,11 @@ const ReadBlogs = (props) => {
 				</div>
 				<div className="flex space-x-4 mb-[-250px]">
 					{/* First Hidden Card for styling */}
-					<div class="blogCardsHiddenDiv hidden sm:block w-1/3" />
+					<div className="blogCardsHiddenDiv hidden sm:block w-1/3" />
 					{/* Blogs Post Array (Limit 4) from Wordpress */}
 					{props?.readBlogsContent.map((keys) => (
 						<ReadBlogsCard
-							Key={iterationCount}
+							Key={keys.id}
 							title={keys?.node?.title}
 							content={keys?.node?.content}
 							link={keys?.node?.link}
