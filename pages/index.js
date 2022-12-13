@@ -110,33 +110,8 @@ export default function Home({
 					caseStudiesContent={caseStudiesContent}
 				/>
 
-				{/* TITLE AND PARAGRAPH */}
-				<TitleAndParagraph
-					// Content
-					title={homePageContent?.titleTwoParagraphsButton?.title}
-					boldParagraph={
-						homePageContent?.titleTwoParagraphsButton?.boldParagraph
-					}
-					paragraphOne={homePageContent?.titleTwoParagraphsButton?.paragraphOne}
-					paragraphTwo={homePageContent?.titleTwoParagraphsButton?.paragraphTwo}
-					buttonLink={homePageContent?.titleTwoParagraphsButton?.buttonLink}
-					// Display Options
-					displayThreeSquaresOption={
-						homePageContent?.titleTwoParagraphsButton?.displayThreeSquaresOption
-					}
-					displayEmailLinkOption={
-						homePageContent?.titleTwoParagraphsButton?.displayEmailLinkOption
-					}
-					displayButtonOption={
-						homePageContent?.titleTwoParagraphsButton?.displayButtonOption
-					}
-					displayBoldText={
-						homePageContent?.titleTwoParagraphsButton?.displayBoldText
-					}
-				/>
-
 				{/* TESTIMONIAL */}
-				{/* <Testimonial
+				<Testimonial
 					// Content
 					title={homePageContent?.testimonialSlider?.title}
 					testimonialContent={
@@ -146,7 +121,7 @@ export default function Home({
 					displayBackgroundAesthetics={
 						homePageContent?.testimonialSlider?.displayBackgroundAesthetics
 					}
-				/> */}
+				/>
 
 				{/* AWARDS */}
 				<Awards
