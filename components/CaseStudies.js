@@ -2,10 +2,6 @@ import CaseStudiesCards from "./CaseStudiesCards";
 import styles from "../styles/components/CaseStudies.module.scss";
 
 const CaseStudies = (props) => {
-	/* Calculates How many iterations and gets 
-    the next object content per iteration */
-	let iterationCount = 0;
-
 	return (
 		<section className={styles.caseStudies}>
 			<div className="content flex flex-col justify-center items-center">
@@ -24,7 +20,7 @@ const CaseStudies = (props) => {
 					{/* Menu Array from Wordpress */}
 					{props?.caseStudiesContent.map((keys) => (
 						<CaseStudiesCards
-							Key={iterationCount++}
+							Key={keys?.id}
 							title={keys?.node?.title}
 							content={keys?.node?.content}
 							link={keys?.node?.link}

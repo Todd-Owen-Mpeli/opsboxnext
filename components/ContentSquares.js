@@ -69,8 +69,8 @@ const ContentSquares = (props) => {
 							style={{
 								background: `linear-gradient(
 								0deg,
-								rgba(4, 44, 86, 0.45),
-								rgba(4, 44, 86, 0.45)
+								rgba(0, 0, 0, 0.60),
+								rgba(0, 0, 0, 0.60)
 							), url(${props?.columnOne?.backgroundImage?.sourceUrl})`,
 								backgroundPosition: "center",
 								backgroundRepeat: "no-repeat",
@@ -104,8 +104,8 @@ const ContentSquares = (props) => {
 							style={{
 								background: `linear-gradient(
 								0deg,
-								rgba(4, 44, 86, 0.45),
-								rgba(4, 44, 86, 0.45)
+								rgba(0, 0, 0, 0.60),
+								rgba(0, 0, 0, 0.60)
 							), url(${props?.columnTwo?.backgroundImage?.sourceUrl})`,
 								backgroundPosition: "center",
 								backgroundRepeat: "no-repeat",
@@ -139,8 +139,8 @@ const ContentSquares = (props) => {
 							style={{
 								background: `linear-gradient(
 								0deg,
-								rgba(4, 44, 86, 0.45),
-								rgba(4, 44, 86, 0.45)
+								rgba(0, 0, 0, 0.60),
+								rgba(0, 0, 0, 0.60)
 							), url(${props?.columnThree?.backgroundImage?.sourceUrl})`,
 								backgroundPosition: "center",
 								backgroundRepeat: "no-repeat",
@@ -175,8 +175,8 @@ const ContentSquares = (props) => {
 								display: `${displayFourthCard}`,
 								background: `linear-gradient(
 								0deg,
-								rgba(4, 44, 86, 0.45),
-								rgba(4, 44, 86, 0.45)
+								rgba(0, 0, 0, 0.60),
+								rgba(0, 0, 0, 0.60)
 							), url(${props?.columnFour?.backgroundImage?.sourceUrl})`,
 								backgroundPosition: "center",
 								backgroundRepeat: "no-repeat",

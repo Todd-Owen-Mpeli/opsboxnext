@@ -39,7 +39,7 @@ const Footer = (props) => {
 						{/* Menu Array from Wordpress */}
 						{props.footerMenu.map((keys) => (
 							<FooterMenuLinks
-								Key={iterationCount}
+								Key={keys?.id}
 								linkUrl={props?.footerMenu[iterationCount]?.node?.url}
 								linkName={props?.footerMenu[iterationCount++]?.node?.label}
 							/>

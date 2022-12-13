@@ -6,16 +6,17 @@ import {client} from "../lib/apollo";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import TitleAndParagraph from "../components/TitleAndParagraph.js";
+import Awards from "../components/Awards";
+import ReadBlogs from "../components/ReadBlogs";
+import CaseStudies from "../components/CaseStudies";
+import Testimonial from "../components/Testimonial";
+import TextImageJumbo from "../components/TextImageJumbo";
 import ContentSquares from "../components/ContentSquares";
+import TitleAndParagraph from "../components/TitleAndParagraph.js";
+import BrochureRequestBanner from "../components/BrochureRequestBanner";
 
 // Styling
 import styles from "../styles/Home.module.scss";
-import TextImageJumbo from "../components/TextImageJumbo";
-import CaseStudies from "../components/CaseStudies";
-import Testimonial from "../components/Testimonial";
-import Awards from "../components/Awards";
-import ReadBlogs from "../components/ReadBlogs";
 
 export default function Home({
 	pageTitle,
@@ -27,6 +28,8 @@ export default function Home({
 	footerContent,
 	footerMenu,
 }) {
+	// console.log(homePageContent);
+
 	return (
 		<>
 			<Head>
@@ -93,6 +96,9 @@ export default function Home({
 				/>
 
 				{/* BROCHURE REQUEST BANNER SECTION */}
+				<BrochureRequestBanner
+					title={homePageContent?.brochureRequestBanner?.title}
+				/>
 
 				{/* TEXT & IMAGE JUMBO SECTION */}
 				<TextImageJumbo

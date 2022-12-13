@@ -25,7 +25,7 @@ const ReadBlogs = (props) => {
 					{/* Blogs Post Array (Limit 4) from Wordpress */}
 					{props?.readBlogsContent.map((keys) => (
 						<ReadBlogsCard
-							Key={keys.id}
+							Key={keys?.id}
 							title={keys?.node?.title}
 							content={keys?.node?.content}
 							link={keys?.node?.link}
