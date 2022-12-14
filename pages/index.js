@@ -13,10 +13,6 @@ import Testimonial from "../components/Testimonial";
 import TextImageJumbo from "../components/TextImageJumbo";
 import ContentSquares from "../components/ContentSquares";
 import TitleAndParagraph from "../components/TitleAndParagraph.js";
-import BrochureRequestBanner from "../components/BrochureRequestBanner";
-
-// Styling
-import styles from "../styles/Home.module.scss";
 
 export default function Home({
 	pageTitle,
@@ -28,8 +24,6 @@ export default function Home({
 	footerContent,
 	footerMenu,
 }) {
-	// console.log(homePageContent);
-
 	return (
 		<>
 			<Head>
@@ -38,7 +32,8 @@ export default function Home({
 				<link rel="icon" href="/svg/favicon.svg" />
 			</Head>
 
-			{/* <Navbar navbarContent={navbarContent} menuLinks={navbarMenu} /> */}
+			{/* <!--===== NAVBAR =====--> */}
+			<Navbar navbarContent={navbarContent} menuLinks={navbarMenu} />
 
 			<main>
 				{/* HERO */}
@@ -95,11 +90,6 @@ export default function Home({
 					}
 				/>
 
-				{/* BROCHURE REQUEST BANNER SECTION */}
-				{/* <BrochureRequestBanner
-					title={homePageContent?.brochureRequestBanner?.title}
-				/> */}
-
 				{/* TEXT & IMAGE JUMBO SECTION */}
 				<TextImageJumbo
 					contentSectionOne={homePageContent?.textImageJumbo?.textImageGroupOne}
@@ -144,6 +134,7 @@ export default function Home({
 						homePageContent?.awards?.selectBackgroundAestheticsOptions
 					}
 				/>
+
 				{/* READ BLOGS */}
 				<ReadBlogs
 					title={homePageContent?.readOurBlogsTitle}
@@ -152,81 +143,15 @@ export default function Home({
 			</main>
 
 			{/* <!--===== FOOTER =====--> */}
-			<Footer footerContent={footerContent} footerMenu={footerMenu} />
+			<Footer footerContent={footerContent} menuLinks={footerMenu} />
 		</>
 	);
 }
 
-export async function getServerSideProps() {
-	const getNavbarContent = gql`
-		{
-			generalSettings {
-				title
-			}
-			themesOptions(
-				where: {id: 1604, status: PUBLISH, name: "Themes Options"}
-			) {
-				edges {
-					node {
-						themesOptions {
-							siteTitle
-							twitterLink
-							phoneNumber
-							linkedinLink
-							emailOptionTwo
-							phoneNumberOptionTwo
-							companyLogo {
-								sourceUrl
-							}
-						}
-					}
-				}
-			}
-		}
-	`;
-
-	const getServicesNavbarMenuLinks = gql`
-		{
-			menuItems(where: {location: SERVICES}) {
-				edges {
-					node {
-						url
-						label
-					}
-				}
-			}
-		}
-	`;
-
-	const getAboutNavbarMenuLinks = gql`
-		{
-			menuItems(where: {location: ABOUT}) {
-				edges {
-					node {
-						url
-						label
-					}
-				}
-			}
-		}
-	`;
-
-	const getRemainingNavbarMenuLinks = gql`
-		{
-			menuItems(where: {location: PRIMARY}) {
-				edges {
-					node {
-						url
-						label
-					}
-				}
-			}
-		}
-	`;
-
+export async function getStaticProps() {
 	const getHomePageContent = gql`
 		{
-			pages(where: {id: 7}) {
+			mainContent: pages(where: {id: 7}) {
 				edges {
 					node {
 						homePage {
@@ -363,9 +288,6 @@ export async function getServerSideProps() {
 								title
 								paragraph
 							}
-							brochureRequestBanner {
-								title
-							}
 							awards {
 								title
 								selectBackgroundAestheticsOptions
@@ -389,7 +311,62 @@ export async function getServerSideProps() {
 					}
 				}
 			}
-			caseStudies(
+			themesOptions(
+				where: {id: 1604, status: PUBLISH, name: "Themes Options"}
+			) {
+				edges {
+					node {
+						themesOptions {
+							siteTitle
+							twitterLink
+							phoneNumber
+							linkedinLink
+							email
+							emailOptionTwo
+							contactAddress
+							contactPostcode
+							contactPostcodeText
+							phoneNumberOptionTwo
+							companyLogo {
+								sourceUrl
+							}
+						}
+					}
+				}
+			}
+			serviceMenuLinks: menuItems(where: {location: SERVICES}) {
+				edges {
+					node {
+						url
+						label
+					}
+				}
+			}
+			aboutMenuLinks: menuItems(where: {location: ABOUT}) {
+				edges {
+					node {
+						url
+						label
+					}
+				}
+			}
+			remainingMenuLinks: menuItems(where: {location: PRIMARY}) {
+				edges {
+					node {
+						url
+						label
+					}
+				}
+			}
+			footerMenuLinks: menuItems(where: {location: FOOTER}) {
+				edges {
+					node {
+						url
+						label
+					}
+				}
+			}
+			caseStudies: caseStudies(
 				where: {orderby: {field: DATE, order: DESC}, status: PUBLISH}
 				first: 3
 			) {
@@ -406,12 +383,7 @@ export async function getServerSideProps() {
 					}
 				}
 			}
-		}
-	`;
-
-	const getReadBlogsContent = gql`
-		{
-			posts(
+			readBlogsContent: posts(
 				where: {orderby: {field: DATE, order: DESC}, status: PUBLISH}
 				first: 4
 			) {
@@ -431,81 +403,28 @@ export async function getServerSideProps() {
 		}
 	`;
 
-	const getFooterContent = gql`
-		{
-			themesOptions(
-				where: {id: 1604, status: PUBLISH, name: "Themes Options"}
-			) {
-				edges {
-					node {
-						themesOptions {
-							twitterLink
-							email
-							contactPostcodeText
-							contactPostcode
-							contactAddress
-							phoneNumber
-							linkedinLink
-						}
-					}
-				}
-			}
-			menuItems(where: {location: FOOTER}) {
-				edges {
-					node {
-						url
-						label
-					}
-				}
-			}
-		}
-	`;
-
-	const responseNavbarContent = await client.query({
-		query: getNavbarContent,
-	});
-
-	const responseAboutNavbarMenuLinks = await client.query({
-		query: getServicesNavbarMenuLinks,
-	});
-
-	const responseServicesNavbarMenuLinks = await client.query({
-		query: getAboutNavbarMenuLinks,
-	});
-
-	const responseRemainingNavbarMenuLinks = await client.query({
-		query: getRemainingNavbarMenuLinks,
-	});
-
 	const response = await client.query({
 		query: getHomePageContent,
 	});
 
-	const responseReadBlogs = await client.query({
-		query: getReadBlogsContent,
-	});
-
-	const responseFooter = await client.query({
-		query: getFooterContent,
-	});
-
 	return {
 		props: {
-			pageTitle: responseNavbarContent.data?.generalSettings?.title,
+			pageTitle:
+				response?.data?.themesOptions?.edges[0]?.node?.themesOptions?.siteTitle,
 			navbarContent:
-				responseNavbarContent.data?.themesOptions?.edges[0]?.node
-					?.themesOptions,
+				response?.data?.themesOptions?.edges[0]?.node?.themesOptions,
 			navbarMenu: [
-				responseServicesNavbarMenuLinks?.data?.menuItems?.edges[0],
-				responseAboutNavbarMenuLinks?.data?.menuItems?.edges,
-				responseRemainingNavbarMenuLinks?.data?.menuItems?.edges,
+				response?.data?.serviceMenuLinks?.edges,
+				response?.data?.aboutMenuLinks?.edges[0],
+				response?.data?.remainingMenuLinks?.edges,
 			],
-			homePageContent: response.data?.pages?.edges[0]?.node?.homePage,
+			homePageContent: response?.data?.mainContent?.edges[0]?.node?.homePage,
 			caseStudiesContent: response.data?.caseStudies?.edges,
-			readBlogsContent: responseReadBlogs?.data?.posts?.edges,
+			readBlogsContent: response?.data?.readBlogsContent?.edges,
 			footerContent:
-				responseFooter.data?.themesOptions?.edges[0]?.node?.themesOptions,
-			footerMenu: responseFooter.data?.menuItems?.edges,
+				response?.data?.themesOptions?.edges[0]?.node?.themesOptions,
+			footerMenu: response?.data?.footerMenuLinks?.edges,
 		},
+		revalidate: 1,
 	};
 }

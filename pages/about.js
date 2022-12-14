@@ -8,14 +8,15 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TextImage from "../components/TextImage";
 import ReadBlogs from "../components/ReadBlogs";
-import ContentSquares from "../components/ContentSquares";
 import TitleAndParagraph from "../components/TitleAndParagraph.js";
+import Value from "../components/Value";
+import ContactBannerTwo from "../components/ContactBannerTwo";
 
-const services = ({
+const about = ({
 	pageTitle,
 	navbarContent,
 	navbarMenu,
-	servicesPageContent,
+	aboutPageContent,
 	readBlogsContent,
 	footerContent,
 	footerMenu,
@@ -34,84 +35,80 @@ const services = ({
 			<main>
 				{/* HERO */}
 				<Hero
-					title={servicesPageContent?.heroSection?.title}
-					backgroundImage={
-						servicesPageContent?.heroSection?.heroImage?.sourceUrl
-					}
+					title={aboutPageContent?.heroSection?.title}
+					backgroundImage={aboutPageContent?.heroSection?.heroImage?.sourceUrl}
 				/>
 
 				{/* TITLE AND PARAGRAPH */}
 				<TitleAndParagraph
 					// Content
-					title={servicesPageContent?.titleTwoParagraphsButton?.title}
+					title={aboutPageContent?.titleTwoParagraphsButton?.title}
 					boldParagraph={
-						servicesPageContent?.titleTwoParagraphsButton?.boldParagraph
+						aboutPageContent?.titleTwoParagraphsButton?.boldParagraph
 					}
 					paragraphOne={
-						servicesPageContent?.titleTwoParagraphsButton?.paragraphOne
+						aboutPageContent?.titleTwoParagraphsButton?.paragraphOne
 					}
 					paragraphTwo={
-						servicesPageContent?.titleTwoParagraphsButton?.paragraphTwo
+						aboutPageContent?.titleTwoParagraphsButton?.paragraphTwo
 					}
-					buttonLink={servicesPageContent?.titleTwoParagraphsButton?.buttonLink}
+					buttonLink={aboutPageContent?.titleTwoParagraphsButton?.buttonLink}
 					// Display Options
 					displayThreeSquaresOption={
-						servicesPageContent?.titleTwoParagraphsButton
+						aboutPageContent?.titleTwoParagraphsButton
 							?.displayThreeSquaresOption
 					}
 					displayEmailLinkOption={
-						servicesPageContent?.titleTwoParagraphsButton
-							?.displayEmailLinkOption
+						aboutPageContent?.titleTwoParagraphsButton?.displayEmailLinkOption
 					}
 					displayButtonOption={
-						servicesPageContent?.titleTwoParagraphsButton?.displayButtonOption
+						aboutPageContent?.titleTwoParagraphsButton?.displayButtonOption
 					}
 					displayBoldText={
-						servicesPageContent?.titleTwoParagraphsButton?.displayBoldText
+						aboutPageContent?.titleTwoParagraphsButton?.displayBoldText
 					}
 				/>
 
-				{/* CONTENT SQUARES */}
-				<ContentSquares
-					// Content
-					title={servicesPageContent?.contentSquares?.title}
-					columnOne={servicesPageContent?.contentSquares?.column}
-					columnTwo={servicesPageContent?.contentSquares?.columnTwo}
-					columnThree={servicesPageContent?.contentSquares?.columnThree}
-					columnFour={servicesPageContent?.contentSquares?.columnFour}
-					// Display Options
-					displayTitle={servicesPageContent?.contentSquares?.displayTitle}
-					displayNumberOfColumns={
-						servicesPageContent?.contentSquares?.displayNumberOfColumns
-					}
+				{/* VALUES */}
+				<Value
+					title={aboutPageContent?.values?.title}
+					paragraph={aboutPageContent?.values?.paragraph}
+					content={aboutPageContent?.values?.content}
 					// Display Squares (Blue/Grey)
 					displayBlueGreySquares={
-						servicesPageContent?.contentSquares?.displayBlueGreySquares
-					}
-					// Display Background Squares Aesthetics
-					displayBackgroundAesthetics={
-						servicesPageContent?.contentSquares?.displayBackgroundAesthetics
+						aboutPageContent?.values?.displayBlueGreySquares
 					}
 				/>
 
+				{/* VALUES */}
+				<ContactBannerTwo
+					title={aboutPageContent?.contactUsBannerTwo?.title}
+					buttonLink={aboutPageContent?.contactUsBannerTwo?.buttonLink}
+					// Display Squares (Blue/Grey)
+					displayBlueGreySquares={
+						aboutPageContent?.contactUsBannerTwo?.displayBlueGreySquares
+					}
+				/>
+
+				{/* TEXT IMAGE */}
 				<TextImage
-					title={servicesPageContent?.textImage?.title}
-					subtitle={servicesPageContent?.textImage?.subtitle}
-					paragraphOne={servicesPageContent?.textImage?.paragraphOne}
-					paragraphTwo={servicesPageContent?.textImage?.paragraphTwo}
-					buttonLink={servicesPageContent?.titleTwoParagraphsButton?.buttonLink}
-					image={servicesPageContent?.textImage?.image?.sourceUrl}
+					title={aboutPageContent?.textImage?.title}
+					subtitle={aboutPageContent?.textImage?.subtitle}
+					paragraphOne={aboutPageContent?.textImage?.paragraphOne}
+					paragraphTwo={aboutPageContent?.textImage?.paragraphTwo}
+					buttonLink={aboutPageContent?.titleTwoParagraphsButton?.buttonLink}
+					image={aboutPageContent?.textImage?.image?.sourceUrl}
 					// Display Options
-					displayButton={servicesPageContent?.textImage?.displayButton}
+					displayButton={aboutPageContent?.textImage?.displayButton}
 					// Display Squares (Blue/Grey)
 					displayBlueGreySquares={
-						servicesPageContent?.textImage?.displayBlueGreySquares
+						aboutPageContent?.textImage?.displayBlueGreySquares
 					}
 				/>
 
 				{/* READ BLOGS */}
 				<ReadBlogs
-					title={servicesPageContent?.readOurBlogsTitle}
+					title={aboutPageContent?.readOurBlogsTitle}
 					readBlogsContent={readBlogsContent}
 				/>
 			</main>
@@ -122,16 +119,75 @@ const services = ({
 	);
 };
 
-export default services;
+export default about;
 
 export async function getStaticProps() {
-	const getServicesPageContent = gql`
+	const getAboutPageContent = gql`
 		{
-			mainContent: pages(where: {status: PUBLISH, id: 327}) {
+			mainContent: pages(where: {status: PUBLISH, id: 324}) {
 				edges {
 					node {
-						ServicesPage {
+						aboutPage {
 							readOurBlogsTitle
+							heroSection {
+								title
+								heroImage {
+									sourceUrl
+								}
+							}
+							textImage {
+								title
+								subtitle
+								paragraphTwo
+								paragraphOne
+								displayButton
+								displayBlueGreySquares
+								buttonLink {
+									url
+									title
+									target
+								}
+								image {
+									sourceUrl
+								}
+							}
+							contactUsBannerTwo {
+								title
+								displayBlueGreySquares
+								buttonLink {
+									url
+									title
+									target
+								}
+							}
+							textQuoteImage {
+								title
+								selectBackgroundAestheticsOptions
+								quoteText
+								personName
+								paragraphTwo
+								paragraphOne
+								image {
+									sourceUrl
+								}
+								displayThreeSquaresOption
+								displayQuoteOption
+								displayImageOption
+								displayButtonOption
+								displayBoldParagraphOption
+								displayBackgroundAestheticsOptions
+								buttonLink {
+									url
+									title
+									target
+								}
+								backgroundAestheticsLocationPositioningOptions {
+									top
+									right
+									left
+									bottom
+								}
+							}
 							titleTwoParagraphsButton {
 								title
 								paragraphTwo
@@ -142,87 +198,19 @@ export async function getStaticProps() {
 								displayBoldText
 								boldParagraph
 								buttonLink {
-									target
-									title
-									url
-								}
-							}
-							textImage {
-								title
-								subtitle
-								paragraphTwo
-								paragraphOne
-								displayButton
-								displayBlueGreySquares
-								image {
-									sourceUrl
-								}
-								buttonLink {
 									url
 									title
 									target
 								}
 							}
-							heroSection {
+							values {
 								title
-								heroImage {
-									sourceUrl
+								paragraph
+								content {
+									title
+									paragraph
 								}
-							}
-							contentSquares {
-								title
-								displayTitle
-								displayNumberOfColumns
 								displayBlueGreySquares
-								displayBackgroundAesthetics
-								columnTwo {
-									title
-									paragraph
-									buttonLink {
-										url
-										title
-										target
-									}
-									backgroundImage {
-										sourceUrl
-									}
-								}
-								columnThree {
-									title
-									paragraph
-									buttonLink {
-										url
-										title
-										target
-									}
-									backgroundImage {
-										sourceUrl
-									}
-								}
-								columnFour {
-									title
-									paragraph
-									buttonLink {
-										url
-										title
-										target
-									}
-									backgroundImage {
-										sourceUrl
-									}
-								}
-								column {
-									title
-									paragraph
-									buttonLink {
-										url
-										title
-										target
-									}
-									backgroundImage {
-										sourceUrl
-									}
-								}
 							}
 						}
 					}
@@ -304,7 +292,7 @@ export async function getStaticProps() {
 	`;
 
 	const response = await client.query({
-		query: getServicesPageContent,
+		query: getAboutPageContent,
 	});
 
 	return {
@@ -318,8 +306,7 @@ export async function getStaticProps() {
 				response?.data?.aboutMenuLinks?.edges[0],
 				response?.data?.remainingMenuLinks?.edges,
 			],
-			servicesPageContent:
-				response?.data?.mainContent?.edges[0]?.node?.ServicesPage,
+			aboutPageContent: response?.data?.mainContent?.edges[0]?.node?.aboutPage,
 			readBlogsContent: response?.data?.readBlogsContent?.edges,
 			footerContent:
 				response?.data?.themesOptions?.edges[0]?.node?.themesOptions,

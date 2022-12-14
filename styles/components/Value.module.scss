@@ -1,0 +1,15 @@
+// Imports
+@import "../fonts";
+@import "../colors";
+
+.values {
+	overflow: hidden;
+	padding: 4rem 2rem;
+}
+
+/* Screen (640px) */
+@media screen and (max-width: 640px) {
+	.values {
+		padding: 4rem 1rem;
+	}
+}

@@ -7,9 +7,9 @@ const TextImage = (props) => {
 	 the Button Icons */
 	let displayButton;
 	if (props?.displayButton === "Yes") {
-		displayButton = "block mt-8 mx-auto w-[fit-content]";
+		displayButton = "block mt-8 px-4 w-[fit-content]";
 	} else if (props?.displayButton === "No") {
-		displayButton = "hidden mt-8 mx-auto w-[fit-content]";
+		displayButton = "hidden mt-8 px-4 w-[fit-content]";
 	}
 
 	/* Allows the user to display
@@ -27,15 +27,15 @@ const TextImage = (props) => {
 				<div className="relative w-full lg:w-1/2 z-50">
 					<div className={styles.colorBoxTwo}></div>
 					<img
-						className="object-cover h-[500px]"
+						className="object-cover w-full h-[500px]"
 						src={props?.image}
 						width="750px"
 						height="500px"
 						alt="Image Two"
 					/>
 				</div>
-				<div className="my-auto flex flex-col w-full lg:w-1/2 z-50">
-					<div className="p-0 lg:px-8 lg:pl-16 text-left">
+				<div className="flex flex-col w-full lg:w-1/2 z-50">
+					<div className="p-4 text-left">
 						<h5 className="uppercase text-grey text-xs">{props?.subtitle}</h5>
 						<h2 className="my-6 mt-3 text-2xl md:text-[2.5rem] text-blue">
 							{props?.title}

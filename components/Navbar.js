@@ -7,8 +7,6 @@ import NavbarMenuSublinks from "./NavbarMenuSublinks";
 import styles from "../styles/components/Navbar.module.scss";
 
 const Navbar = (props) => {
-	console.log(props?.menuLinks);
-
 	// Display Drop Down Navigation
 	const [navbarOpen, setNavbarOpen] = useState(false);
 	function displayDropdownNavbar() {
@@ -171,7 +169,7 @@ const Navbar = (props) => {
 											onClick={displayAboutSublinks}
 										>
 											<Link
-												href="#"
+												href="/about"
 												className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
 											>
 												About

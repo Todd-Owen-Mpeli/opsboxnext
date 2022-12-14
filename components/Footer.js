@@ -37,11 +37,11 @@ const Footer = (props) => {
 					</div>
 					<div className="w-full xl:w-1/4 flex flex-col gap-1 justify-start">
 						{/* Menu Array from Wordpress */}
-						{props.footerMenu.map((keys) => (
+						{props.menuLinks.map((keys) => (
 							<FooterMenuLinks
 								Key={keys?.id}
-								linkUrl={props?.footerMenu[iterationCount]?.node?.url}
-								linkName={props?.footerMenu[iterationCount++]?.node?.label}
+								linkUrl={props?.menuLinks[iterationCount]?.node?.url}
+								linkName={props?.menuLinks[iterationCount++]?.node?.label}
 							/>
 						))}
 					</div>

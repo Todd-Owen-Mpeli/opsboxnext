@@ -10,7 +10,7 @@ const FooterTwo = (props) => {
 	return (
 		<section className={styles.footer}>
 			<div className="container mx-auto">
-				<div className="flex flex-col xl:flex-row justify-between gap-8 xl:gap-x-4">
+				<div className="flex flex-col lg:grid lg:grid-cols-2 xl:flex xl:flex-row justify-between gap-8 xl:gap-x-4">
 					<div className="w-full xl:w-1/4 flex flex-col text-left justify-between">
 						<p className="w-[15rem] text-tiny">
 							{props?.footerContent?.contactAddress}
@@ -37,15 +37,15 @@ const FooterTwo = (props) => {
 					</div>
 					<div className="w-full xl:w-1/4 flex flex-col gap-1 justify-start">
 						{/* Menu Array from Wordpress */}
-						{props.footerMenu.map((keys) => (
+						{props.menuLinks.map((keys) => (
 							<FooterMenuLinks
-								Key={keys.id}
-								linkUrl={props?.footerMenu[iterationCount]?.node?.url}
-								linkName={props?.footerMenu[iterationCount++]?.node?.label}
+								Key={keys?.id}
+								linkUrl={props?.menuLinks[iterationCount]?.node?.url}
+								linkName={props?.menuLinks[iterationCount++]?.node?.label}
 							/>
 						))}
 					</div>
-					<div className="w-full xl:w-1/4 flex justify-center items-center xl:justify-start xl:items-start">
+					<div className="w-full xl:w-1/4 flex justify-center items-center md:justify-start md:items-start">
 						<div className="flex justify-end space-x-8">
 							<Link
 								href={`${props?.footerContent?.twitterLink}`}
