@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import styles from "../styles/components/TextImageJumbo.module.scss";
 
@@ -60,7 +61,7 @@ const TextImageJumbo = (props) => {
 								</div>
 							</div>
 							<div className="relative  w-full lg:w-1/2 z-50">
-								<div className={styles.colourBoxOne}></div>
+								<div className={styles.colorBoxOne}></div>
 								<img
 									className="object-cover h-[500px]"
 									src={props?.contentSectionOne?.image?.sourceUrl}
@@ -83,7 +84,7 @@ const TextImageJumbo = (props) => {
 						{/* Second Row of Text & Image Content */}
 						<div className="item flex flex-col-reverse gap-10 justify-between lg:flex-row py-12 lg:px-2 z-50">
 							<div className="relative w-full lg:w-1/2 z-50">
-								<div className={styles.colourBoxTwo}></div>
+								<div className={styles.colorBoxTwo}></div>
 								<img
 									className="object-cover h-[500px]"
 									src={props?.contentSectionTwo?.image?.sourceUrl}
@@ -160,7 +161,7 @@ const TextImageJumbo = (props) => {
 								</div>
 							</div>
 							<div className="relative w-full lg:w-1/2 z-50">
-								<div className={styles.colourBoxThree}></div>
+								<div className={styles.colorBoxThree}></div>
 								<img
 									className="object-cover h-[500px]"
 									src={props?.contentSectionThree?.image?.sourceUrl}

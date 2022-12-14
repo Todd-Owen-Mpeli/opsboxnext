@@ -1,0 +1,43 @@
+// Imports
+@import "../fonts";
+@import "../colors";
+
+.textImage {
+	padding: 5.5rem 2rem;
+
+	.colorBoxTwo {
+		width: 100%;
+		height: 500px;
+		margin-left: 2px;
+		margin-top: 12px;
+		position: absolute;
+		border: 0.15rem solid $primary_Blue;
+
+		&:hover {
+			transition: all 2s ease-in-out;
+			border: 0.15rem solid $primary_yellow;
+		}
+	}
+}
+
+/* Screen (1024px) */
+@media screen and (max-width: 1024px) {
+	.colorBoxTwo {
+		margin-top: 7px;
+		margin-left: 3px;
+	}
+}
+
+/* Screen (768px) */
+@media screen and (max-width: 768px) {
+	.colorBoxTwo {
+		margin-left: 9px;
+	}
+}
+
+/* Screen (390px) */
+@media screen and (max-width: 390px) {
+	.colorBoxTwo {
+		width: 325px;
+	}
+}

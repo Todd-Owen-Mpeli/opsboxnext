@@ -41,13 +41,13 @@ const ContentSquares = (props) => {
 	if (props?.displayNumberOfColumns === "3") {
 		displayFourthCard = "none";
 		displayNumberCards =
-			"singleContentSquare w-full lg:w-1/3 h-full lg:min-h-[500px] flex flex-col group justify-between bg-cover bg-no-repeat bg-center";
+			"singleContentSquare w-full lg:w-1/3 h-full lg:min-h-[600px] flex flex-col group justify-between bg-cover bg-no-repeat bg-center";
 		gridSectionDisplay =
 			"gridSection z-50 flex flex-col lg:flex-row gap-1 justify-center items-center";
 	} else if (props?.displayNumberOfColumns === "4") {
 		displayFourthCard = "block";
 		displayNumberCards =
-			"singleContentSquare w-full md:w-full xl:w-1/4 h-full lg:min-h-[500px] flex flex-col group justify-between bg-cover bg-no-repeat bg-center";
+			"singleContentSquare w-full md:w-full xl:w-1/4 h-full lg:min-h-[600px] flex flex-col group justify-between bg-cover bg-no-repeat bg-center";
 		gridSectionDisplay =
 			"gridSection z-50 flex flex-col md:grid md:grid-cols-2 xl:flex xl:flex-row gap-1 justify-center items-center";
 	}
@@ -77,7 +77,7 @@ const ContentSquares = (props) => {
 								backgroundSize: "cover",
 							}}
 						>
-							<div className="content flex flex-col h-full lg:h-[500px] justify-between">
+							<div className="content flex flex-col h-full lg:h-[600px] justify-between">
 								<div className="py-20 px-10 sm:p-20 pb-0">
 									<h2 className="text-white text-center uppercase tracking-[0.25rem]">
 										{props?.columnOne?.title}
@@ -112,7 +112,7 @@ const ContentSquares = (props) => {
 								backgroundSize: "cover",
 							}}
 						>
-							<div className="content flex flex-col justify-between h-full lg:h-[500px]">
+							<div className="content flex flex-col justify-between h-full lg:h-[600px]">
 								<div className="py-20 px-10 sm:p-20 pb-0">
 									<h2 className="text-white text-center uppercase tracking-[0.25rem]">
 										{props?.columnTwo?.title}
@@ -147,7 +147,7 @@ const ContentSquares = (props) => {
 								backgroundSize: "cover",
 							}}
 						>
-							<div className="content flex flex-col justify-between h-full lg:h-[500px]">
+							<div className="content flex flex-col justify-between h-full lg:h-[600px]">
 								<div className="py-20 px-10 sm:p-20 pb-0">
 									<h2 className="text-white text-center uppercase tracking-[0.25rem]">
 										{props?.columnThree?.title}
@@ -183,7 +183,7 @@ const ContentSquares = (props) => {
 								backgroundSize: "cover",
 							}}
 						>
-							<div className="content flex flex-col justify-between h-full lg:h-[500px]">
+							<div className="content flex flex-col justify-between h-full lg:h-[600px]">
 								<div className="py-20 px-10 sm:p-20 pb-0">
 									<h2 className="text-white text-center uppercase tracking-[0.25rem]">
 										{props?.columnFour?.title}

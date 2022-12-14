@@ -7,6 +7,8 @@ import NavbarMenuSublinks from "./NavbarMenuSublinks";
 import styles from "../styles/components/Navbar.module.scss";
 
 const Navbar = (props) => {
+	console.log(props?.menuLinks);
+
 	// Display Drop Down Navigation
 	const [navbarOpen, setNavbarOpen] = useState(false);
 	function displayDropdownNavbar() {
@@ -138,7 +140,7 @@ const Navbar = (props) => {
 											onClick={displayServicesSublinks}
 										>
 											<Link
-												href="#"
+												href="/services"
 												className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
 											>
 												Services
@@ -153,7 +155,7 @@ const Navbar = (props) => {
 										{servicesSublinksOpen ? (
 											<div className="flex flex-col justify-center items-center w-full py-4 border-b border-orange border-solid">
 												{/* Menu Array from Wordpress */}
-												{props.menuLinks[1].map((keys) => (
+												{props?.menuLinks[0].map((keys) => (
 													<NavbarMenuSublinks
 														Key={keys?.id}
 														linkUrl={keys?.node?.url}
@@ -185,8 +187,8 @@ const Navbar = (props) => {
 											<div className="flex flex-col justify-center items-center w-full py-2 border-b border-orange border-solid">
 												{/* Menu Array from Wordpress */}
 												<NavbarMenuSublinks
-													linkUrl={props?.menuLinks[0]?.node?.url}
-													linkName={props?.menuLinks[0]?.node?.label}
+													linkUrl={props?.menuLinks[1]?.node?.url}
+													linkName={props?.menuLinks[1]?.node?.label}
 												/>
 											</div>
 										) : null}

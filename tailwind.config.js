@@ -25,14 +25,14 @@ module.exports = {
 			transparent: "transparent",
 			current: "currentColor",
 
-			// Base Colours Variables
+			// Base colors Variables
 			white: "#fff",
 			black: "#111",
 			pureBlack: "#000",
 			grey: "#b3b3b3",
 			lightGrey: "#fafafa",
 
-			// Main Colours
+			// Main colors
 			blue: "#053972",
 			darkblue: "#042c56",
 			yellow: "#FDA730",

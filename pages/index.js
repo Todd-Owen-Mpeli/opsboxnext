@@ -38,7 +38,7 @@ export default function Home({
 				<link rel="icon" href="/svg/favicon.svg" />
 			</Head>
 
-			<Navbar navbarContent={navbarContent} menuLinks={navbarMenu} />
+			{/* <Navbar navbarContent={navbarContent} menuLinks={navbarMenu} /> */}
 
 			<main>
 				{/* HERO */}
@@ -96,9 +96,9 @@ export default function Home({
 				/>
 
 				{/* BROCHURE REQUEST BANNER SECTION */}
-				<BrochureRequestBanner
+				{/* <BrochureRequestBanner
 					title={homePageContent?.brochureRequestBanner?.title}
-				/>
+				/> */}
 
 				{/* TEXT & IMAGE JUMBO SECTION */}
 				<TextImageJumbo
