@@ -325,6 +325,6 @@ export async function getStaticProps() {
 				response?.data?.themesOptions?.edges[0]?.node?.themesOptions,
 			footerMenu: response?.data?.footerMenuLinks?.edges,
 		},
-		revalidate: 10,
+		revalidate: 1,
 	};
 }

@@ -47,9 +47,11 @@ const Value = (props) => {
 			<div className="container mx-auto border-r-4 border-yellow border-[0.15rem] border-solid z-50">
 				<div className="flex flex-col justify-center items-center">
 					<div className="flex flex-col p-4 text-center z-50">
-						<h2 className="my-3 text-4xl text-blue">{props?.title}</h2>
+						<h2 className="my-6 mt-3 text-2xl md:text-[2.5rem] text-blue">
+							{props?.title}
+						</h2>
 						<div
-							className="w-full xl:w-[55rem] text-base text-black"
+							className="w-full xl:w-[55rem] text-tiny text-black"
 							dangerouslySetInnerHTML={createFullParagraphMarkup()}
 						/>
 					</div>

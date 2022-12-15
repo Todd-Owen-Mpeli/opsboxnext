@@ -11,6 +11,7 @@ import ReadBlogs from "../components/ReadBlogs";
 import TitleAndParagraph from "../components/TitleAndParagraph.js";
 import Value from "../components/Value";
 import ContactBannerTwo from "../components/ContactBannerTwo";
+import TextImageQuote from "../components/TextImageQuote";
 
 const about = ({
 	pageTitle,
@@ -21,6 +22,7 @@ const about = ({
 	footerContent,
 	footerMenu,
 }) => {
+	// console.log(aboutPageContent);
 	return (
 		<>
 			<Head>
@@ -66,6 +68,39 @@ const about = ({
 					}
 					displayBoldText={
 						aboutPageContent?.titleTwoParagraphsButton?.displayBoldText
+					}
+				/>
+
+				<TextImageQuote
+					title={aboutPageContent?.textQuoteImage?.title}
+					quoteText={aboutPageContent?.textQuoteImage?.quoteText}
+					personName={aboutPageContent?.textQuoteImage?.personName}
+					image={aboutPageContent?.textQuoteImage?.image?.sourceUrl}
+					buttonLink={aboutPageContent?.textQuoteImage?.buttonLink}
+					paragraphOne={aboutPageContent?.textQuoteImage?.paragraphOne}
+					paragraphTwo={aboutPageContent?.textQuoteImage?.paragraphTwo}
+					backgroundAestheticsLocationPositioningOptions={
+						aboutPageContent?.textQuoteImage
+							?.backgroundAestheticsLocationPositioningOptions
+					}
+					// Display Options
+					displayThreeSquaresOption={
+						aboutPageContent?.textQuoteImage?.displayThreeSquaresOption
+					}
+					displayQuoteOption={
+						aboutPageContent?.textQuoteImage?.displayQuoteOption
+					}
+					displayImageOption={
+						aboutPageContent?.textQuoteImage?.displayImageOption
+					}
+					displayBoldParagraphOption={
+						aboutPageContent?.textQuoteImage?.displayBoldParagraphOption
+					}
+					displayButtonOption={
+						aboutPageContent?.textQuoteImage?.displayButtonOption
+					}
+					displayBackgroundAestheticsOptions={
+						aboutPageContent?.textQuoteImage?.displayBackgroundAestheticsOptions
 					}
 				/>
 
@@ -312,6 +347,6 @@ export async function getStaticProps() {
 				response?.data?.themesOptions?.edges[0]?.node?.themesOptions,
 			footerMenu: response?.data?.footerMenuLinks?.edges,
 		},
-		revalidate: 10,
+		revalidate: 1,
 	};
 }

@@ -20,22 +20,24 @@ const ValueCard = (props) => {
 	}
 
 	return (
-		<div className="flex flex-col justify-between items-start w-full xl:w-1/4 h-full">
-			{/* <!-- Icons --> */}
-			<img
-				className="mx-auto w-[100%] h-[150px] object-contain"
-				src={`/svg/values/${iconName}.svg`}
-				alt="Icon Squares"
-			/>
-			<div className="flex flex-col justify-between">
-				<h2 className="text-center text-lg py-4 text-blue leading-normal">
-					{props?.title}
-				</h2>
-				<p className="text-center text-[0.85rem] text-black font-[400] leading-[1.5rem] px-6 py-2">
-					{props?.paragraph}
-				</p>
+		<>
+			<div className="flex flex-col justify-between items-start w-full xl:w-1/4 h-full">
+				{/* <!-- Icons --> */}
+				<img
+					className="mx-auto w-[100%] h-[150px] object-contain"
+					src={`/svg/values/${iconName}.svg`}
+					alt="Icon Squares"
+				/>
+				<div className="flex flex-col justify-between">
+					<h2 className="text-center text-lg py-4 text-blue leading-normal">
+						{props?.title}
+					</h2>
+					<p className="text-center text-[0.85rem] text-black font-[400] leading-[1.5rem] px-6 py-2">
+						{props?.paragraph}
+					</p>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
