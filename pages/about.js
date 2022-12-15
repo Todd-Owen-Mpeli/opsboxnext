@@ -23,6 +23,7 @@ const about = ({
 	footerMenu,
 }) => {
 	// console.log(aboutPageContent);
+
 	return (
 		<>
 			<Head>
@@ -79,13 +80,16 @@ const about = ({
 					buttonLink={aboutPageContent?.textQuoteImage?.buttonLink}
 					paragraphOne={aboutPageContent?.textQuoteImage?.paragraphOne}
 					paragraphTwo={aboutPageContent?.textQuoteImage?.paragraphTwo}
-					backgroundAestheticsLocationPositioningOptions={
+					positioningOptions={
 						aboutPageContent?.textQuoteImage
 							?.backgroundAestheticsLocationPositioningOptions
 					}
 					// Display Options
 					displayThreeSquaresOption={
 						aboutPageContent?.textQuoteImage?.displayThreeSquaresOption
+					}
+					selectBackgroundAestheticsOptions={
+						aboutPageContent?.textQuoteImage?.selectBackgroundAestheticsOptions
 					}
 					displayQuoteOption={
 						aboutPageContent?.textQuoteImage?.displayQuoteOption
@@ -331,6 +335,7 @@ export async function getStaticProps() {
 	});
 
 	return {
+		revalidate: 1,
 		props: {
 			pageTitle:
 				response?.data?.themesOptions?.edges[0]?.node?.themesOptions?.siteTitle,
@@ -347,6 +352,5 @@ export async function getStaticProps() {
 				response?.data?.themesOptions?.edges[0]?.node?.themesOptions,
 			footerMenu: response?.data?.footerMenuLinks?.edges,
 		},
-		revalidate: 1,
 	};
 }

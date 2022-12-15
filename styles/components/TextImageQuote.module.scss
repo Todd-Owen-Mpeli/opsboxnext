@@ -1,0 +1,14 @@
+// Imports
+@import "../fonts";
+@import "../colors";
+
+.textImageQuote {
+	padding: 1rem 0;
+
+	.paragraph {
+		p {
+			width: 100%;
+			font-size: $fontSize_tiny;
+		}
+	}
+}

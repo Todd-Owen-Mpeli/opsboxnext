@@ -1,6 +1,6 @@
 import Link from "next/link";
-import styles from "../styles/components/Footer.module.scss";
 import FooterMenuLinks from "./FooterMenuLinks";
+import styles from "../styles/components/Footer.module.scss";
 
 const Footer = (props) => {
 	/* Calculates How many iterations and sets 

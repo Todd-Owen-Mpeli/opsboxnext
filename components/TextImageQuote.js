@@ -1,8 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import styles from "../styles/components/TextImageQuote.module.scss";
 
 const TextImageQuote = (props) => {
-	console.log(props);
-
 	function createFullParagraphOneMarkup() {
 		return {
 			__html: `${props?.paragraphOne}`,
@@ -15,19 +16,38 @@ const TextImageQuote = (props) => {
 	}
 
 	/* Allows the user to display
+	 the Background Icons */
+	let displayBoldParagraphOption;
+	if (props?.displayBoldParagraphOption === "Yes") {
+		displayBoldParagraphOption = "700";
+	} else if (props?.displayBoldParagraphOption === "No") {
+		displayBoldParagraphOption = "500";
+	}
+
+	/* Allows the user to display
 	 the Image on the Right or Left*/
 	let displayRightImage;
 	let displayLeftImage;
 	if (props?.displayImageOption === "Right") {
-		displayRightImage = "block relative w-1/2 z-50";
-		displayLeftImage = "hidden relative w-1/2 z-50";
+		displayRightImage = "block relative w-full lg:w-1/2 z-50";
+		displayLeftImage = "hidden relative w-full lg:w-1/2 z-50";
 	} else if (props?.displayImageOption === "Left") {
-		displayRightImage = "hidden relative w-1/2 z-50";
-		displayLeftImage = "block relative w-1/2 z-50";
+		displayRightImage = "hidden relative w-full lg:w-1/2 z-50";
+		displayLeftImage = "block relative w-full lg:w-1/2 z-50";
+	}
+
+	/* Allows the user to 
+    display the Button*/
+	// Display Drop Down Navigation
+	let displayButtonOption;
+	if (props?.displayButtonOption === "Yes") {
+		displayButtonOption = "block mt-2 w-[fit-content]";
+	} else if (props?.displayButtonOption === "No") {
+		displayButtonOption = "hidden mt-2 w-[fit-content]";
 	}
 
 	/* Allows the user to display
-	 the Background Icons */
+	 the Quote text section */
 	let displayQuoteOption;
 	if (props?.displayQuoteOption === "Yes") {
 		displayQuoteOption = "block py-5 w-full md:w-[25rem] text-left";
@@ -38,28 +58,46 @@ const TextImageQuote = (props) => {
 	/* Allows the user to display
 	 the Background Icons */
 	let displayBlueGreySquares;
-	if (props?.displayBlueGreySquares === "Yes") {
+	if (props?.displayThreeSquaresOption === "Yes") {
 		displayBlueGreySquares = "block mx-auto mt-3 py-3";
-	} else if (props?.displayBlueGreySquares === "No") {
+	} else if (props?.displayThreeSquaresOption === "No") {
 		displayBlueGreySquares = "hidden mx-auto mt-3 py-3";
 	}
 
+	/* Allows the user to display the
+    Background Squares Aesthetics */
+	let displayBackgroundAesthetics;
+	if (props?.displayBackgroundAestheticsOptions === "Yes") {
+		displayBackgroundAesthetics = "block relative z-0";
+	} else if (props?.displayBackgroundAestheticsOptions === "No") {
+		displayBackgroundAesthetics = "hidden relative z-0";
+	}
+
 	return (
-		<div className="py-4">
+		<div className={styles.textImageQuote}>
 			<div className="container mx-auto">
 				{/* <!-- Background Aesthetics (Grey Squares) --> */}
-				<div className="backgroundAesthetics relative z-0 <?php echo $displayBackgroundAesthetics ?>">
+				<div className={displayBackgroundAesthetics}>
 					{/* <!-- Position the background Aesthetic SVG --> */}
-					{/* <div className="pageBackgroundIcons absolute <?php echo $BackgroundAestheticsOpacity?>"
-                        style="top:<?php echo $top?>px; right:<?php echo $right?>px; bottom:<?php echo $bottom?>px; left:<?php echo $left?>px;">
-                        <img className="mx-auto w-[300%] h-[650px] object-contain"
-                            src="<?php echo get_template_directory_uri() . $selectBackgroundAesthetics ?>"
-                            alt="Background Squares"/>
-                    </div> */}
+					<div
+						className="absolute"
+						style={{
+							top: `${props?.positioningOptions?.top}px`,
+							right: `${props?.positioningOptions?.right}px`,
+							bottom: `${props?.positioningOptions?.bottom}px`,
+							left: `${props?.positioningOptions?.left}px`,
+						}}
+					>
+						<img
+							className="mx-auto w-full xl:w-[300%] h-[450px] xl:h-[650px] object-cover"
+							src={`/svg/backgroundIcons/Icon${props?.selectBackgroundAestheticsOptions}.svg`}
+							alt="Background Squares"
+						/>
+					</div>
 				</div>
 
 				<div className="content z-50">
-					<div className="flex py-12 px-2">
+					<div className="flex flex-col lg:flex-row gap-8 py-12 px-2">
 						<div className={displayLeftImage}>
 							<div className="colourBoxOne absolute border-yellow"></div>
 							<img
@@ -70,18 +108,23 @@ const TextImageQuote = (props) => {
 								alt="Image"
 							/>
 						</div>
-						<div className="my-auto flex flex-col w-1/2 px-8 z-50 <?php echo $displayPadding ?>">
-							<div className="w-[40rem] text-left">
+						<div className="my-auto flex flex-col w-full lg:w-1/2 px-8 z-50">
+							<div className="text-left">
 								<h5 className="uppercase text-grey">OPS-BOX WAY</h5>
 								<h2 className="my-6 mt-3 text-2xl md:text-[2.5rem] text-blue">
 									{props?.title}
 								</h2>
-								<p
-									className="mb-2 text-tiny <?php echo $displayBoldParagraph ?> "
+								<div
+									className={styles.paragraph}
+									style={{
+										paddingBottom: "0.5rem",
+										fontWeight: `${displayBoldParagraphOption}`,
+									}}
+									// className="mb-2 text-tiny <?php echo $displayBoldParagraph ?> "
 									dangerouslySetInnerHTML={createFullParagraphOneMarkup()}
 								/>
-								<p
-									className="text-tiny"
+								<div
+									className={styles.paragraph}
 									dangerouslySetInnerHTML={createFullParagraphTwoMarkup()}
 								/>
 							</div>
@@ -92,7 +135,7 @@ const TextImageQuote = (props) => {
 								</h5>
 								<h6 className="my-6 mt-3 text-blue">{props?.personName}</h6>
 							</div>
-							<div className="mt-2 w-[fit-content] <?php echo $displayButton ?>">
+							<div className={displayButtonOption}>
 								<div
 									className="py-2 px-8 w-full text-white bg-yellow border-2 border-yellow
                         hover:text-orange hover:border-orange hover:bg-white hover:border-solid"
