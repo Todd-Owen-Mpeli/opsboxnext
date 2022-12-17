@@ -99,7 +99,7 @@ const TextImageQuote = (props) => {
 				<div className="content z-50">
 					<div className="flex flex-col lg:flex-row gap-8 py-12 px-2">
 						<div className={displayLeftImage}>
-							<div className="colourBoxOne absolute border-yellow"></div>
+							<div className={styles.colorBox}></div>
 							<img
 								src={props?.image}
 								className="object-cover w-full h-[500px]"
@@ -151,7 +151,7 @@ const TextImageQuote = (props) => {
 							</div>
 						</div>
 						<div className={displayRightImage}>
-							<div className="colourBoxTwo absolute border-yellow"></div>
+							<div className={styles.colorBox}></div>
 							<img
 								src={props?.image}
 								className="object-cover w-full h-[500px]"

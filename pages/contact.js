@@ -3,18 +3,24 @@ import {gql} from "@apollo/client";
 import {client} from "../lib/apollo";
 
 // Components
+import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ReadBlogs from "../components/ReadBlogs";
+import TextImageQuote from "../components/TextImageQuote";
+import TitleTwoParagraphButton from "../components/TitleTwoParagraphButton.js";
+import TitleAndParagraph from "../components/TitleAndParagraph";
 
 const contact = ({
 	pageTitle,
 	navbarContent,
+	contactPageContent,
+	readBlogsContent,
 	navbarMenu,
 	footerContent,
 	footerMenu,
 }) => {
-	// console.log(aboutPageContent);
+	console.log(contactPageContent);
 
 	return (
 		<>
@@ -28,9 +34,61 @@ const contact = ({
 			<Navbar navbarContent={navbarContent} menuLinks={navbarMenu} />
 
 			<main>
+				{/* HERO */}
+				<Hero
+					title={contactPageContent?.heroSection?.title}
+					backgroundImage={
+						contactPageContent?.heroSection?.heroImage?.sourceUrl
+					}
+				/>
+
+				{/* TITLE AND PARAGRAPH */}
+				<TitleAndParagraph
+					title={contactPageContent?.titleParagraphs?.title}
+					paragraph={contactPageContent?.titleParagraphs?.paragraph}
+				/>
+
+				<TextImageQuote
+					title={contactPageContent?.textQuoteImage?.title}
+					quoteText={contactPageContent?.textQuoteImage?.quoteText}
+					personName={contactPageContent?.textQuoteImage?.personName}
+					image={contactPageContent?.textQuoteImage?.image?.sourceUrl}
+					buttonLink={contactPageContent?.textQuoteImage?.buttonLink}
+					paragraphOne={contactPageContent?.textQuoteImage?.paragraphOne}
+					paragraphTwo={contactPageContent?.textQuoteImage?.paragraphTwo}
+					positioningOptions={
+						contactPageContent?.textQuoteImage
+							?.backgroundAestheticsLocationPositioningOptions
+					}
+					// Display Options
+					displayThreeSquaresOption={
+						contactPageContent?.textQuoteImage?.displayThreeSquaresOption
+					}
+					selectBackgroundAestheticsOptions={
+						contactPageContent?.textQuoteImage
+							?.selectBackgroundAestheticsOptions
+					}
+					displayQuoteOption={
+						contactPageContent?.textQuoteImage?.displayQuoteOption
+					}
+					displayImageOption={
+						contactPageContent?.textQuoteImage?.displayImageOption
+					}
+					displayBoldParagraphOption={
+						contactPageContent?.textQuoteImage?.displayBoldParagraphOption
+					}
+					displayButtonOption={
+						contactPageContent?.textQuoteImage?.displayButtonOption
+					}
+					displayBackgroundAestheticsOptions={
+						contactPageContent?.textQuoteImage
+							?.displayBackgroundAestheticsOptions
+					}
+				/>
+
 				{/* READ BLOGS */}
 				<ReadBlogs
-					title={aboutPageContent?.readOurBlogsTitle}
+					title={contactPageContent?.readOurBlogsTitle}
 					readBlogsContent={readBlogsContent}
 				/>
 			</main>
@@ -46,8 +104,52 @@ export default contact;
 export async function getStaticProps() {
 	const getContactPageContent = gql`
 		{
-			mainContent: pages(where: {status: PUBLISH, id: 324}) {
-			
+			mainContent: pages(where: {status: PUBLISH, id: 335}) {
+				edges {
+					node {
+						contactPage {
+							textQuoteImage {
+								title
+								selectBackgroundAestheticsOptions
+								quoteText
+								personName
+								paragraphTwo
+								paragraphOne
+								image {
+									sourceUrl
+								}
+								displayThreeSquaresOption
+								displayQuoteOption
+								displayImageOption
+								displayButtonOption
+								displayBoldParagraphOption
+								displayBackgroundAestheticsOptions
+								buttonLink {
+									url
+									title
+									target
+								}
+								backgroundAestheticsLocationPositioningOptions {
+									top
+									right
+									left
+									bottom
+								}
+							}
+							readOurBlogsTitle
+							heroSection {
+								title
+								heroImage {
+									sourceUrl
+								}
+							}
+							titleParagraphs {
+								title
+								paragraph
+							}
+						}
+					}
+				}
 			}
 			themesOptions(
 				where: {id: 1604, status: PUBLISH, name: "Themes Options"}
@@ -140,7 +242,8 @@ export async function getStaticProps() {
 				response?.data?.aboutMenuLinks?.edges[0],
 				response?.data?.remainingMenuLinks?.edges,
 			],
-			// contactPageContent: response?.data?.mainContent?.edges[0]?.node?.aboutPage,
+			contactPageContent:
+				response?.data?.mainContent?.edges[0]?.node?.contactPage,
 			readBlogsContent: response?.data?.readBlogsContent?.edges,
 			footerContent:
 				response?.data?.themesOptions?.edges[0]?.node?.themesOptions,

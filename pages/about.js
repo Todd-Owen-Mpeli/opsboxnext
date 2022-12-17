@@ -3,15 +3,15 @@ import {gql} from "@apollo/client";
 import {client} from "../lib/apollo";
 
 // Components
+import Value from "../components/Value";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TextImage from "../components/TextImage";
 import ReadBlogs from "../components/ReadBlogs";
-import TitleAndParagraph from "../components/TitleAndParagraph.js";
-import Value from "../components/Value";
-import ContactBannerTwo from "../components/ContactBannerTwo";
 import TextImageQuote from "../components/TextImageQuote";
+import ContactBannerTwo from "../components/ContactBannerTwo";
+import TitleTwoParagraphButton from "../components/TitleTwoParagraphButton.js";
 
 const about = ({
 	pageTitle,
@@ -43,7 +43,7 @@ const about = ({
 				/>
 
 				{/* TITLE AND PARAGRAPH */}
-				<TitleAndParagraph
+				<TitleTwoParagraphButton
 					// Content
 					title={aboutPageContent?.titleTwoParagraphsButton?.title}
 					boldParagraph={

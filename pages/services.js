@@ -9,7 +9,7 @@ import Footer from "../components/Footer";
 import TextImage from "../components/TextImage";
 import ReadBlogs from "../components/ReadBlogs";
 import ContentSquares from "../components/ContentSquares";
-import TitleAndParagraph from "../components/TitleAndParagraph.js";
+import TitleTwoParagraphButton from "../components/TitleTwoParagraphButton.js";
 
 const services = ({
 	pageTitle,
@@ -41,7 +41,7 @@ const services = ({
 				/>
 
 				{/* TITLE AND PARAGRAPH */}
-				<TitleAndParagraph
+				<TitleTwoParagraphButton
 					// Content
 					title={servicesPageContent?.titleTwoParagraphsButton?.title}
 					boldParagraph={

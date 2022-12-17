@@ -12,7 +12,7 @@ import CaseStudies from "../components/CaseStudies";
 import Testimonial from "../components/Testimonial";
 import TextImageJumbo from "../components/TextImageJumbo";
 import ContentSquares from "../components/ContentSquares";
-import TitleAndParagraph from "../components/TitleAndParagraph.js";
+import TitleTwoParagraphButton from "../components/TitleTwoParagraphButton.js";
 
 export default function Home({
 	pageTitle,
@@ -43,7 +43,7 @@ export default function Home({
 				/>
 
 				{/* TITLE AND PARAGRAPH */}
-				<TitleAndParagraph
+				<TitleTwoParagraphButton
 					// Content
 					title={homePageContent?.titleTwoParagraphsButton?.title}
 					boldParagraph={
