@@ -72,6 +72,7 @@ const about = ({
 					}
 				/>
 
+				{/* TEXT IMAGE QUOTE */}
 				<TextImageQuote
 					title={aboutPageContent?.textQuoteImage?.title}
 					quoteText={aboutPageContent?.textQuoteImage?.quoteText}

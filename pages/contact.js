@@ -10,17 +10,19 @@ import ReadBlogs from "../components/ReadBlogs";
 import TextImageQuote from "../components/TextImageQuote";
 import TitleTwoParagraphButton from "../components/TitleTwoParagraphButton.js";
 import TitleAndParagraph from "../components/TitleAndParagraph";
+import ContactForm from "../components/ContactForm";
 
 const contact = ({
 	pageTitle,
 	navbarContent,
 	contactPageContent,
+	contactForm,
 	readBlogsContent,
 	navbarMenu,
 	footerContent,
 	footerMenu,
 }) => {
-	console.log(contactPageContent);
+	// console.log(contactForm);
 
 	return (
 		<>
@@ -48,6 +50,7 @@ const contact = ({
 					paragraph={contactPageContent?.titleParagraphs?.paragraph}
 				/>
 
+				{/* TEXT IMAGE QUOTE */}
 				<TextImageQuote
 					title={contactPageContent?.textQuoteImage?.title}
 					quoteText={contactPageContent?.textQuoteImage?.quoteText}
@@ -85,6 +88,9 @@ const contact = ({
 							?.displayBackgroundAestheticsOptions
 					}
 				/>
+
+				{/* CONTACT FORM */}
+				<ContactForm title={contactForm?.title} contactForm={contactForm} />
 
 				{/* READ BLOGS */}
 				<ReadBlogs
@@ -146,6 +152,49 @@ export async function getStaticProps() {
 							titleParagraphs {
 								title
 								paragraph
+							}
+						}
+					}
+				}
+			}
+			gfForms(where: {formIds: "2"}) {
+				nodes {
+					formId
+					title
+					submitButton {
+						text
+					}
+					formFields(first: 10) {
+						nodes {
+							... on NameField {
+								id
+								label
+								type
+							}
+							... on TextField {
+								id
+								type
+								label
+							}
+							... on EmailField {
+								id
+								type
+								label
+							}
+							... on CaptchaField {
+								id
+								label
+								type
+							}
+							... on PhoneField {
+								id
+								label
+								type
+							}
+							... on TextAreaField {
+								id
+								type
+								label
 							}
 						}
 					}
@@ -244,6 +293,7 @@ export async function getStaticProps() {
 			],
 			contactPageContent:
 				response?.data?.mainContent?.edges[0]?.node?.contactPage,
+			contactForm: response?.data?.gfForms?.nodes[0],
 			readBlogsContent: response?.data?.readBlogsContent?.edges,
 			footerContent:
 				response?.data?.themesOptions?.edges[0]?.node?.themesOptions,
