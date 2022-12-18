@@ -3,18 +3,6 @@ import Link from "next/link";
 import styles from "../styles/components/CaseStudies.module.scss";
 
 const CaseStudiesCards = (props) => {
-	function createTrimmedParagraphMarkup() {
-		return {
-			__html: `${props?.content.substring(0, 200)}...`,
-		};
-	}
-
-	function createFullParagraphMarkup() {
-		return {
-			__html: `${props?.content.substring(0, 1000)}...`,
-		};
-	}
-
 	return (
 		<div
 			className={styles.caseStudiesCards}
@@ -48,10 +36,9 @@ const CaseStudiesCards = (props) => {
 							{props?.title}
 						</h2>
 					</Link>
-					<div
-						className="my-6 text-left text-white text-tiny leading-[1.5rem]"
-						dangerouslySetInnerHTML={createFullParagraphMarkup()}
-					/>
+					<div className="my-6 text-left text-white text-tiny leading-[1.5rem]">
+						{`${props?.content.substring(0, 1000)}...`}
+					</div>
 				</article>
 				<div className="pt-1">
 					<div className="w-full flex">
@@ -81,10 +68,9 @@ const CaseStudiesCards = (props) => {
 							{props?.title}
 						</h2>
 					</Link>
-					<div
-						className="my-6 text-left text-white text-tiny leading-[1.5rem]"
-						dangerouslySetInnerHTML={createTrimmedParagraphMarkup()}
-					/>
+					<div className="my-6 text-left text-white text-tiny leading-[1.5rem]">
+						{`${props?.content.substring(0, 200)}...`}
+					</div>
 				</div>
 				<div className="pt-10">
 					<div className="w-full flex">

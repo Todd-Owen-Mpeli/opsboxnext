@@ -3,17 +3,6 @@ import Link from "next/link";
 import styles from "../styles/components/ReadBlogs.module.scss";
 
 const ReadBlogsCard = (props) => {
-	function createFullParagraphMarkup() {
-		return {
-			__html: `${props?.content.substring(0, 800)}...`,
-		};
-	}
-	function createTrimmedParagraphMarkup() {
-		return {
-			__html: `${props?.content.substring(0, 250)}...`,
-		};
-	}
-
 	/* Receives the current iteration number and sets the 
     Background Color a different color per iteration */
 	let backgroundColor;
@@ -66,10 +55,9 @@ const ReadBlogsCard = (props) => {
 								{props?.title}
 							</h2>
 						</Link>
-						<div
-							className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]"
-							dangerouslySetInnerHTML={createFullParagraphMarkup()}
-						></div>
+						<div className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]">
+							{`${props?.content.substring(0, 800)}...`}
+						</div>
 					</article>
 					{/* Mobile Version */}
 					<article className="block md:hidden">
@@ -79,10 +67,9 @@ const ReadBlogsCard = (props) => {
 								{props?.title}
 							</h2>
 						</Link>
-						<div
-							className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]"
-							dangerouslySetInnerHTML={createFullParagraphMarkup()}
-						></div>
+						<div className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]">
+							{`${props?.content.substring(0, 800)}...`}
+						</div>
 					</article>
 				</div>
 				<div className="pt-10 justify-end">
@@ -117,10 +104,9 @@ const ReadBlogsCard = (props) => {
 							{props?.title}
 						</h2>
 					</Link>
-					<div
-						className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]"
-						dangerouslySetInnerHTML={createTrimmedParagraphMarkup()}
-					></div>
+					<div className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]">
+						{`${props?.content.substring(0, 250)}...`}
+					</div>
 				</div>
 				<div className="pt-10">
 					<div className="w-full h-full object-cover flex">

@@ -16,12 +16,6 @@ const Value = (props) => {
 		displayBlueGreySquares = "hidden mx-auto pb-5 z-50";
 	}
 
-	function createFullParagraphMarkup() {
-		return {
-			__html: `${props?.paragraph}`,
-		};
-	}
-
 	return (
 		<section className={styles.values}>
 			{/* Background Aesthetics (Grey Squares) */}
@@ -50,10 +44,9 @@ const Value = (props) => {
 						<h2 className="my-6 mt-3 text-2xl md:text-[2.5rem] text-blue">
 							{props?.title}
 						</h2>
-						<div
-							className="w-full xl:w-[55rem] text-tiny text-black"
-							dangerouslySetInnerHTML={createFullParagraphMarkup()}
-						/>
+						<div className="w-full xl:w-[55rem] text-tiny text-black">
+							{props?.paragraph}
+						</div>
 					</div>
 					<div className="flex flex-col gap-8 md:grid md:grid-cols-2 xl:gap-0 xl:flex xl:flex-row justify-center items-center mt-6 p-6 space-x-1 z-50">
 						{/* Values Array from Wordpress */}

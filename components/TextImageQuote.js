@@ -4,17 +4,6 @@ import Link from "next/link";
 import styles from "../styles/components/TextImageQuote.module.scss";
 
 const TextImageQuote = (props) => {
-	function createFullParagraphOneMarkup() {
-		return {
-			__html: `${props?.paragraphOne}`,
-		};
-	}
-	function createFullParagraphTwoMarkup() {
-		return {
-			__html: `${props?.paragraphTwo}`,
-		};
-	}
-
 	/* Allows the user to display
 	 the Background Icons */
 	let displayBoldParagraphOption;
@@ -120,13 +109,10 @@ const TextImageQuote = (props) => {
 										paddingBottom: "0.5rem",
 										fontWeight: `${displayBoldParagraphOption}`,
 									}}
-									// className="mb-2 text-tiny <?php echo $displayBoldParagraph ?> "
-									dangerouslySetInnerHTML={createFullParagraphOneMarkup()}
-								/>
-								<div
-									className={styles.paragraph}
-									dangerouslySetInnerHTML={createFullParagraphTwoMarkup()}
-								/>
+								>
+									{props?.paragraphOne}
+								</div>
+								<div className={styles.paragraph}>{props?.paragraphTwo}</div>
 							</div>
 							{/* Quote Section */}
 							<div className={displayQuoteOption}>
