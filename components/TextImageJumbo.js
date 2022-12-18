@@ -3,6 +3,54 @@ import Link from "next/link";
 import styles from "../styles/components/TextImageJumbo.module.scss";
 
 const TextImageJumbo = (props) => {
+	/* Check if Button Link content is null
+	 And Displays content if it isn't null */
+	function isButtonLink(isButtonLink) {
+		let contentStyling;
+		if (isButtonLink === null) {
+			contentStyling = "hidden mt-8 mx-auto w-[fit-content]";
+		} else {
+			contentStyling = "block mt-8 mx-auto w-[fit-content]";
+		}
+
+		return contentStyling;
+	}
+	/* Check if Image content is null
+	 And Displays content if it null */
+	function isImageContent(isImageContent) {
+		let contentStyling;
+		if (isImageContent === null) {
+			contentStyling = "hidden object-cover h-[500px]";
+		} else {
+			contentStyling = "block object-cover h-[500px]";
+		}
+
+		return contentStyling;
+	}
+	/* Check if paragraph content is null
+	 And Displays content if it null */
+	function isParagraphContent(isParagraphContent) {
+		let contentStyling;
+		if (isParagraphContent === null) {
+			contentStyling = "hidden text-tiny py-1";
+		} else {
+			contentStyling = "block text-tiny py-1";
+		}
+
+		return contentStyling;
+	}
+
+	function createParagraphOneMarkup(contentSectionNumber) {
+		return {
+			__html: DOMPurify.sanitize(`${contentSectionNumber?.paragraphOne}`),
+		};
+	}
+
+	function createParagraphTwoMarkup(contentSectionNumber) {
+		return {
+			__html: DOMPurify.sanitize(`${contentSectionNumber?.paragraphTwo}`),
+		};
+	}
 	return (
 		<section className={styles.TextImageJumbo}>
 			<div className="py-2 pt-28">
@@ -41,14 +89,28 @@ const TextImageJumbo = (props) => {
 									<h2 className="my-6 mt-3 text-2xl md:text-[2.5rem] text-blue">
 										{props?.contentSectionOne?.title}
 									</h2>
-									<p className="text-tiny py-1">
-										{props?.contentSectionOne?.paragraphOne}
-									</p>
-									<p className="text-tiny py-1">
-										{props?.contentSectionOne?.paragraphTwo}
-									</p>
+									<div
+										className={isParagraphContent(
+											props?.contentSectionOne?.paragraphTwo
+										)}
+										dangerouslySetInnerHTML={createParagraphOneMarkup(
+											props?.contentSectionOne
+										)}
+									/>
+									<div
+										className={isParagraphContent(
+											props?.contentSectionOne?.paragraphTwo
+										)}
+										dangerouslySetInnerHTML={createParagraphTwoMarkup(
+											props?.contentSectionOne
+										)}
+									/>
 								</div>
-								<div className="mt-8 mx-auto w-[fit-content]">
+								<div
+									className={isButtonLink(
+										props?.contentSectionOne?.buttonLink?.url
+									)}
+								>
 									<div className="py-2 px-8 w-full text-white bg-yellow hover:text-orange border-2 border-yellow hover:border-orange hover:bg-white hover:border-solid">
 										<Link
 											href={`${props?.contentSectionOne?.buttonLink?.url}`}
@@ -63,7 +125,9 @@ const TextImageJumbo = (props) => {
 							<div className="relative  w-full lg:w-1/2 z-50">
 								<div className={styles.colorBoxOne}></div>
 								<img
-									className="object-cover h-[500px]"
+									className={isImageContent(
+										props?.contentSectionOne?.image?.sourceUrl
+									)}
 									src={props?.contentSectionOne?.image?.sourceUrl}
 									width="750px"
 									height="500px"
@@ -86,7 +150,9 @@ const TextImageJumbo = (props) => {
 							<div className="relative w-full lg:w-1/2 z-50">
 								<div className={styles.colorBoxTwo}></div>
 								<img
-									className="object-cover h-[500px]"
+									className={isImageContent(
+										props?.contentSectionTwo?.image?.sourceUrl
+									)}
 									src={props?.contentSectionTwo?.image?.sourceUrl}
 									width="750px"
 									height="500px"
@@ -101,14 +167,28 @@ const TextImageJumbo = (props) => {
 									<h2 className="my-6 mt-3 text-2xl md:text-[2.5rem] text-blue">
 										{props?.contentSectionTwo?.title}
 									</h2>
-									<p className="text-tiny py-1">
-										{props?.contentSectionTwo?.paragraphOne}
-									</p>
-									<p className="text-tiny py-1">
-										{props?.contentSectionTwo?.paragraphTwo}
-									</p>
+									<div
+										className={isParagraphContent(
+											props?.contentSectionTwo?.paragraphOne
+										)}
+										dangerouslySetInnerHTML={createParagraphOneMarkup(
+											props?.contentSectionTwo
+										)}
+									/>
+									<div
+										className={isParagraphContent(
+											props?.contentSectionTwo?.paragraphTwo
+										)}
+										dangerouslySetInnerHTML={createParagraphTwoMarkup(
+											props?.contentSectionTwo
+										)}
+									/>
 								</div>
-								<div className="mt-8 mx-auto w-[fit-content]">
+								<div
+									className={isButtonLink(
+										props?.contentSectionTwo?.buttonLink?.url
+									)}
+								>
 									<div className="py-2 px-8 w-full text-white bg-yellow hover:text-orange border-2 border-yellow hover:border-orange hover:bg-white hover:border-solid">
 										<Link
 											href={`${props?.contentSectionTwo?.buttonLink?.url}`}
@@ -141,14 +221,28 @@ const TextImageJumbo = (props) => {
 									<h2 className="my-6 mt-3 text-2xl md:text-[2.5rem] text-blue">
 										{props?.contentSectionThree?.title}
 									</h2>
-									<p className="text-tiny py-1">
-										{props?.contentSectionThree?.paragraphOne}
-									</p>
-									<p className="text-tiny py-1">
-										{props?.contentSectionThree?.paragraphTwo}
-									</p>
+									<div
+										className={isParagraphContent(
+											props?.contentSectionThree?.paragraphOne
+										)}
+										dangerouslySetInnerHTML={createParagraphOneMarkup(
+											props?.contentSectionThree
+										)}
+									/>
+									<div
+										className={isParagraphContent(
+											props?.contentSectionThree?.paragraphTwo
+										)}
+										dangerouslySetInnerHTML={createParagraphTwoMarkup(
+											props?.contentSectionThree
+										)}
+									/>
 								</div>
-								<div className="buttonSection mt-8 mx-auto w-[fit-content]">
+								<div
+									className={isButtonLink(
+										props?.contentSectionThree?.buttonLink?.url
+									)}
+								>
 									<div className="py-2 px-8 w-full text-white bg-yellow hover:text-orange border-2 border-yellow hover:border-orange hover:bg-white hover:border-solid">
 										<Link
 											href={`${props?.contentSectionThree?.buttonLink?.url}`}
@@ -163,7 +257,9 @@ const TextImageJumbo = (props) => {
 							<div className="relative w-full lg:w-1/2 z-50">
 								<div className={styles.colorBoxThree}></div>
 								<img
-									className="object-cover h-[500px]"
+									className={isImageContent(
+										props?.contentSectionThree?.image?.sourceUrl
+									)}
 									src={props?.contentSectionThree?.image?.sourceUrl}
 									width="750px"
 									height="500px"

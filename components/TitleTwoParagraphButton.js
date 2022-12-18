@@ -1,6 +1,39 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import DOMPurify from "isomorphic-dompurify";
 
 const TitleAndParagraph = (props) => {
+	/* Check if paragraph content is null
+	 And Displays content if it null */
+	function isParagraphContent(isParagraphContent) {
+		let contentStyling;
+		if (isParagraphContent === null) {
+			contentStyling = "hidden text-tiny";
+		} else {
+			contentStyling = "block text-tiny";
+		}
+
+		return contentStyling;
+	}
+
+	function createBoldParagraphMarkup() {
+		return {
+			__html: DOMPurify.sanitize(`${props?.boldParagraph}`),
+		};
+	}
+
+	function createParagraphOneMarkup() {
+		return {
+			__html: DOMPurify.sanitize(`${props?.paragraphOne}`),
+		};
+	}
+
+	function createParagraphTwoMarkup() {
+		return {
+			__html: DOMPurify.sanitize(`${props?.paragraphTwo}`),
+		};
+	}
+
 	/* User Email Link*/
 	const contactEmailLink = `mailto:<?php echo ${props?.contactEmailLink}?subject=Work With Us`;
 
@@ -52,17 +85,26 @@ const TitleAndParagraph = (props) => {
 					</h2>
 					<div className="flex flex-col md:flex-row space-x-0 space-y-2 md:space-y-0 md:space-x-6 px-6 xl:px-80 mx-auto">
 						<div className="flex flex-col w-full md:w-1/2 m-0">
-							<p className={displayBoldText}>{props?.boldParagraph}</p>
-							<p className="text-tiny">{props?.paragraphOne}</p>
+							<div
+								className={displayBoldText}
+								dangerouslySetInnerHTML={createBoldParagraphMarkup()}
+							/>
+							<div
+								className={isParagraphContent(props?.paragraphOne)}
+								dangerouslySetInnerHTML={createParagraphOneMarkup()}
+							/>
 						</div>
-						<p className="flex flex-col w-full md:w-1/2 m-0 text-tiny">
-							{props?.paragraphTwo}
+						<div className="flex flex-col w-full md:w-1/2 m-0">
+							<div
+								className={isParagraphContent(props?.paragraphTwo)}
+								dangerouslySetInnerHTML={createParagraphTwoMarkup()}
+							/>
 							<span className={displayEmailLinkOption}>
 								<a className="text-blue" href={contactEmailLink}>
 									{props?.contactEmailText}
 								</a>
 							</span>
-						</p>
+						</div>
 					</div>
 					<div className={displayButtonOption}>
 						<Link

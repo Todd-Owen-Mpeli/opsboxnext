@@ -1,8 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import DOMPurify from "isomorphic-dompurify";
 import styles from "../styles/components/CaseStudies.module.scss";
 
 const CaseStudiesCards = (props) => {
+	function createFullParagraphMarkup() {
+		const sanitizedContent = DOMPurify.sanitize(props?.content);
+		return {
+			__html: `${sanitizedContent.substring(0, 1000)}...`,
+		};
+	}
+	function createTrimmedParagraphMarkup() {
+		const sanitizedContent = DOMPurify.sanitize(props?.content);
+		return {
+			__html: `${sanitizedContent.substring(0, 200)}...`,
+		};
+	}
+
 	return (
 		<div
 			className={styles.caseStudiesCards}
@@ -36,9 +50,10 @@ const CaseStudiesCards = (props) => {
 							{props?.title}
 						</h2>
 					</Link>
-					<div className="my-6 text-left text-white text-tiny leading-[1.5rem]">
-						{`${props?.content.substring(0, 1000)}...`}
-					</div>
+					<div
+						className="my-6 text-left text-white text-tiny leading-[1.5rem]"
+						dangerouslySetInnerHTML={createFullParagraphMarkup()}
+					/>
 				</article>
 				<div className="pt-1">
 					<div className="w-full flex">
@@ -68,9 +83,10 @@ const CaseStudiesCards = (props) => {
 							{props?.title}
 						</h2>
 					</Link>
-					<div className="my-6 text-left text-white text-tiny leading-[1.5rem]">
-						{`${props?.content.substring(0, 200)}...`}
-					</div>
+					<div
+						className="my-6 text-left text-white text-tiny leading-[1.5rem]"
+						dangerouslySetInnerHTML={createTrimmedParagraphMarkup()}
+					/>
 				</div>
 				<div className="pt-10">
 					<div className="w-full flex">

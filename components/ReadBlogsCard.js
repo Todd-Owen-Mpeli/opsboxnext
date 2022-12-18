@@ -1,8 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import DOMPurify from "isomorphic-dompurify";
 import styles from "../styles/components/ReadBlogs.module.scss";
 
 const ReadBlogsCard = (props) => {
+	function createFullParagraphMarkup() {
+		const sanitizedContent = DOMPurify.sanitize(props?.content);
+		return {
+			__html: `${sanitizedContent.substring(0, 800)}...`,
+		};
+	}
+	function createTrimmedParagraphMarkup() {
+		const sanitizedContent = DOMPurify.sanitize(props?.content);
+		return {
+			__html: `${sanitizedContent.substring(0, 250)}...`,
+		};
+	}
+
 	/* Receives the current iteration number and sets the 
     Background Color a different color per iteration */
 	let backgroundColor;
@@ -55,9 +69,10 @@ const ReadBlogsCard = (props) => {
 								{props?.title}
 							</h2>
 						</Link>
-						<div className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]">
-							{`${props?.content.substring(0, 800)}...`}
-						</div>
+						<div
+							className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]"
+							dangerouslySetInnerHTML={createFullParagraphMarkup()}
+						></div>
 					</article>
 					{/* Mobile Version */}
 					<article className="block md:hidden">
@@ -67,9 +82,10 @@ const ReadBlogsCard = (props) => {
 								{props?.title}
 							</h2>
 						</Link>
-						<div className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]">
-							{`${props?.content.substring(0, 800)}...`}
-						</div>
+						<div
+							className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]"
+							dangerouslySetInnerHTML={createFullParagraphMarkup()}
+						></div>
 					</article>
 				</div>
 				<div className="pt-10 justify-end">
@@ -104,9 +120,10 @@ const ReadBlogsCard = (props) => {
 							{props?.title}
 						</h2>
 					</Link>
-					<div className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]">
-						{`${props?.content.substring(0, 250)}...`}
-					</div>
+					<div
+						className="my-6 text-left text-white text-[0.85rem] leading-[1.5rem]"
+						dangerouslySetInnerHTML={createTrimmedParagraphMarkup()}
+					/>
 				</div>
 				<div className="pt-10">
 					<div className="w-full h-full object-cover flex">

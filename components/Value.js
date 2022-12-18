@@ -1,8 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from "../styles/components/Value.module.scss";
 import ValueCard from "./ValueCard";
+import DOMPurify from "isomorphic-dompurify";
+import styles from "../styles/components/Value.module.scss";
 
 const Value = (props) => {
+	function createParagraphMarkup() {
+		return {
+			__html: DOMPurify.sanitize(`${props?.paragraph}`),
+		};
+	}
+
 	/* Calculates How many iterations and sets 
 	current value as the MapFunction Key value */
 	let iterationCount = 0;
@@ -44,9 +51,10 @@ const Value = (props) => {
 						<h2 className="my-6 mt-3 text-2xl md:text-[2.5rem] text-blue">
 							{props?.title}
 						</h2>
-						<div className="w-full xl:w-[55rem] text-tiny text-black">
-							{props?.paragraph}
-						</div>
+						<div
+							className="w-full xl:w-[55rem] text-tiny text-black"
+							dangerouslySetInnerHTML={createParagraphMarkup()}
+						/>
 					</div>
 					<div className="flex flex-col gap-8 md:grid md:grid-cols-2 xl:gap-0 xl:flex xl:flex-row justify-center items-center mt-6 p-6 space-x-1 z-50">
 						{/* Values Array from Wordpress */}

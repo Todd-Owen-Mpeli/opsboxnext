@@ -3,6 +3,30 @@ import Link from "next/link";
 import styles from "../styles/components/TextImage.module.scss";
 
 const TextImage = (props) => {
+	function createParagraphOneMarkup() {
+		return {
+			__html: DOMPurify.sanitize(`${props?.paragraphOne}`),
+		};
+	}
+
+	/* Check if paragraph content is null
+	 And Displays content if it null */
+	function isParagraphContent(isParagraphContent) {
+		let contentStyling;
+		if (isParagraphContent === null) {
+			contentStyling = "hidden text-tiny py-1";
+		} else {
+			contentStyling = "block text-tiny py-1";
+		}
+
+		return contentStyling;
+	}
+
+	function createParagraphTwoMarkup() {
+		return {
+			__html: DOMPurify.sanitize(`${props?.paragraphTwo}`),
+		};
+	}
 	/* Allows the user to display
 	 the Button Icons */
 	let displayButton;
@@ -41,8 +65,14 @@ const TextImage = (props) => {
 							<h2 className="my-6 mt-3 text-2xl md:text-[2.5rem] text-blue">
 								{props?.title}
 							</h2>
-							<p className="text-tiny py-1">{props?.paragraphOne}</p>
-							<p className="text-tiny py-1">{props?.paragraphTwo}</p>
+							<div
+								className={isParagraphContent(props?.paragraphOne)}
+								dangerouslySetInnerHTML={createParagraphOneMarkup()}
+							/>
+							<div
+								className={isParagraphContent(props?.paragraphTwo)}
+								dangerouslySetInnerHTML={createParagraphTwoMarkup()}
+							/>
 						</div>
 						<div className={displayButton}>
 							<div className="py-2 px-8 w-full text-white bg-yellow hover:text-orange border-2 border-yellow hover:border-orange hover:bg-white hover:border-solid">

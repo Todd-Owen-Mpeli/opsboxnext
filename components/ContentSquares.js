@@ -2,6 +2,19 @@
 import Link from "next/link";
 
 const ContentSquares = (props) => {
+	/* Check if Button Link content is null
+	 And Displays content if it isn't null */
+	function isButtonLink(isButtonLink) {
+		let contentStyling;
+		if (isButtonLink === null) {
+			contentStyling =
+				"hidden w-[fit-content] py-2 px-8 mx-auto bg-yellow hover:bg-transparent hover: hover:border-white border-2 border-yellow";
+		} else {
+			contentStyling =
+				"block w-[fit-content] py-2 px-8 mx-auto bg-yellow hover:bg-transparent hover: hover:border-white border-2 border-yellow";
+		}
+		return contentStyling;
+	}
 	/* Allows the user to 
     display the Title Section*/
 	let displayTitle;
@@ -87,7 +100,9 @@ const ContentSquares = (props) => {
 									</p>
 								</div>
 								<div className="relative flex flex-col py-10 px-20">
-									<button className="w-[fit-content] py-2 px-8 mx-auto bg-yellow hover:bg-transparent hover: hover:border-white border-2 border-yellow">
+									<button
+										className={isButtonLink(props?.columnOne?.buttonLink?.url)}
+									>
 										<Link
 											href={`${props?.columnOne?.buttonLink?.url}`}
 											className="uppercase text-white text-sm tracking-[0.15rem]"
@@ -122,7 +137,9 @@ const ContentSquares = (props) => {
 									</p>
 								</div>
 								<div className="relative flex flex-col py-10 px-20">
-									<button className="w-[fit-content] py-2 px-8 mx-auto bg-yellow hover:bg-transparent hover: hover:border-white border-2 border-yellow">
+									<button
+										className={isButtonLink(props?.columnTwo?.buttonLink?.url)}
+									>
 										<Link
 											href={`${props?.columnTwo?.buttonLink?.url}`}
 											className="uppercase text-white text-sm tracking-[0.15rem]"
@@ -157,7 +174,11 @@ const ContentSquares = (props) => {
 									</p>
 								</div>
 								<div className="relative flex flex-col py-10 px-20">
-									<button className="w-[fit-content] py-2 px-8 mx-auto bg-yellow hover:bg-transparent hover: hover:border-white border-2 border-yellow">
+									<button
+										className={isButtonLink(
+											props?.columnThree?.buttonLink?.url
+										)}
+									>
 										<Link
 											href={`${props?.columnThree?.buttonLink?.url}`}
 											className="uppercase text-white text-sm tracking-[0.15rem]"
@@ -193,7 +214,9 @@ const ContentSquares = (props) => {
 									</p>
 								</div>
 								<div className="relative flex flex-col py-10 px-20">
-									<button className="w-[fit-content] py-2 px-8 mx-auto bg-yellow hover:bg-transparent hover: hover:border-white border-2 border-yellow">
+									<button
+										className={isButtonLink(props?.columnFour?.buttonLink?.url)}
+									>
 										<Link
 											href={`${props?.columnFour?.buttonLink?.url}`}
 											className="uppercase text-white text-sm tracking-[0.15rem]"

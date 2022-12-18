@@ -1,9 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import DOMPurify from "isomorphic-dompurify";
 import styles from "../styles/components/TextImageQuote.module.scss";
 
 const TextImageQuote = (props) => {
+	function createParagraphOneMarkup() {
+		return {
+			__html: DOMPurify.sanitize(`${props?.paragraphOne}`),
+		};
+	}
+	function createParagraphTwoMarkup() {
+		return {
+			__html: DOMPurify.sanitize(`${props?.paragraphTwo}`),
+		};
+	}
+
 	/* Allows the user to display
 	 the Background Icons */
 	let displayBoldParagraphOption;
@@ -109,10 +121,12 @@ const TextImageQuote = (props) => {
 										paddingBottom: "0.5rem",
 										fontWeight: `${displayBoldParagraphOption}`,
 									}}
-								>
-									{props?.paragraphOne}
-								</div>
-								<div className={styles.paragraph}>{props?.paragraphTwo}</div>
+									dangerouslySetInnerHTML={createParagraphOneMarkup()}
+								/>
+								<div
+									className={styles.paragraph}
+									dangerouslySetInnerHTML={createParagraphTwoMarkup()}
+								/>
 							</div>
 							{/* Quote Section */}
 							<div className={displayQuoteOption}>
