@@ -9,11 +9,19 @@
 	background-color: $primary_Blue;
 }
 
+.footerTwo {
+	margin-top: 0.25rem;
+	padding: 7.5rem 3.5rem;
+}
+
 /* Screen (1024px) */
 @media screen and (max-width: 1024px) {
-	.footer,
-	.footerTwo {
+	.footer {
 		padding: 8.5rem 2rem;
 		padding-top: 20rem;
+	}
+
+	.footerTwo {
+		padding: 5rem 3.5rem;
 	}
 }

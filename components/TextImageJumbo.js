@@ -57,7 +57,7 @@ const TextImageJumbo = (props) => {
 				<div className="container mx-auto z-50">
 					{/* Background Aesthetics (Grey Squares) */}
 					<div className="relative z-0">
-						<div className="absolute left-[-375px] top-[200px] opacity-[5%]">
+						<div className="absolute left-[-375px] top-[[0.5s]px] opacity-[5%]">
 							<img
 								className="mx-auto w-[300%] h-[650px] object-contain"
 								src="/svg/backgroundIcons/IconThree.svg"

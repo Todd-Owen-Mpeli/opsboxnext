@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import styles from "../styles/components/Footer.module.scss";
 import FooterMenuLinks from "./FooterMenuLinks";
@@ -8,7 +9,7 @@ const FooterTwo = (props) => {
 	let iterationCount = 0;
 
 	return (
-		<section className={styles.footer}>
+		<section className={styles.footerTwo}>
 			<div className="container mx-auto">
 				<div className="flex flex-col lg:grid lg:grid-cols-2 xl:flex xl:flex-row justify-between gap-8 xl:gap-x-4">
 					<div className="w-full xl:w-1/4 flex flex-col text-left justify-between">
@@ -17,20 +18,20 @@ const FooterTwo = (props) => {
 						</p>
 						<Link
 							href={`${props?.footerContent?.contactPostcode}`}
-							className="text-tiny hover:text-yellow hover:ease-in-out hover:duration-200"
+							className="text-tiny hover:text-yellow hover:ease-in-out hover:duration-[0.5s]"
 							target="blank"
 						>
 							{props?.footerContent?.contactPostcodeText}
 						</Link>
 						<Link
 							href={`tel:${props?.footerContent?.phoneNumber}`}
-							className="mt-4 text-tiny hover:text-yellow hover:ease-in-out hover:duration-200"
+							className="mt-4 text-tiny hover:text-yellow hover:ease-in-out hover:duration-[0.5s]"
 						>
 							{props?.footerContent?.phoneNumber}
 						</Link>
 						<Link
 							href={`mailto:${props?.footerContent?.email}`}
-							className="text-tiny hover:text-yellow hover:ease-in-out hover:duration-200"
+							className="text-tiny hover:text-yellow hover:ease-in-out hover:duration-[0.5s]"
 						>
 							{props?.footerContent?.email}
 						</Link>

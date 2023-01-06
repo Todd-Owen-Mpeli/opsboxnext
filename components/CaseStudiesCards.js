@@ -59,7 +59,7 @@ const CaseStudiesCards = (props) => {
 					<div className="w-full flex">
 						<Link
 							href={`${props?.link}`}
-							className="uppercase font-semibold text-white hover:text-orange hover:ease-in-out hover:duration-200"
+							className="uppercase font-semibold text-white hover:text-orange hover:ease-in-out hover:duration-[0.5s]"
 						>
 							Read More
 						</Link>
@@ -92,7 +92,7 @@ const CaseStudiesCards = (props) => {
 					<div className="w-full flex">
 						<Link
 							href={`${props?.link}`}
-							className="uppercase font-semibold text-white hover:text-orange hover:ease-in-out hover:duration-200"
+							className="uppercase font-semibold text-white hover:text-orange hover:ease-in-out hover:duration-[0.5s]"
 						>
 							Read More
 						</Link>

@@ -4,7 +4,7 @@ const FooterMenuLinks = (props) => {
 		<>
 			<Link
 				href={`${props?.linkUrl}`}
-				className="text-tiny hover:text-yellow hover:ease-in-out hover:duration-200"
+				className="text-tiny hover:text-yellow hover:ease-in-out hover:duration-[0.5s]"
 			>
 				{props?.linkName}
 			</Link>

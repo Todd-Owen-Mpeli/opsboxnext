@@ -2,7 +2,6 @@
 import styles from "../styles/components/ContactForm.module.scss";
 
 const ContactForm = (props) => {
-	console.log(props);
 	return (
 		<section className={styles.contactForm}>
 			<div className="container mx-auto">

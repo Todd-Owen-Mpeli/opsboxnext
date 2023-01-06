@@ -19,7 +19,7 @@ const Testimonial = (props) => {
 					<h5 className="text-center text-base text-black font-[500] uppercase">
 						Testimonial
 					</h5>
-					<h2 className="text-center text-5xl text-blue font-[400] tracking-[0.05rem]">
+					<h2 className="my-4 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-blue font-[400] tracking-[0.05rem]">
 						{props?.title}
 					</h2>
 				</div>

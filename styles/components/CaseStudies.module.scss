@@ -44,10 +44,27 @@
 	}
 }
 
+.caseStudiesCardsTwo {
+	gap: 2rem;
+	z-index: 50;
+	display: flex;
+	margin: 1rem 0;
+	position: relative;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 0.15rem solid $baseColor_Grey;
+}
+
 /* Screen (834px) */
 @media screen and (max-width: 834px) {
 	.textSection {
 		padding: 2rem;
+	}
+
+	.caseStudiesCardsTwo {
+		display: flex;
+		flex-direction: column;
 	}
 }
 

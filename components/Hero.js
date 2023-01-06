@@ -1,13 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 const Hero = (props) => {
 	return (
 		<section className="heroSection">
 			<div className="content">
-				<div className="topSection flex flex-col justify-end relative z-50 h-[85vh] bg-cover bg-center bg-no-repeat">
-					<style jsx>{`
-						.topSection {
-							background-image: url("${props.backgroundImage}");
-						}
-					`}</style>
+				<div
+					className="topSection flex flex-col justify-end relative z-50 h-[85vh] bg-cover bg-center bg-no-repeat"
+					style={{
+						backgroundImage: `url(${props.backgroundImage}`,
+					}}
+				>
 					<div className="title flex justify-center items-center py-10 bg-blue bg-opacity-75">
 						<h1 className="text-white font-bold text-[2.5rem] text-center leading-8">
 							{props?.title}

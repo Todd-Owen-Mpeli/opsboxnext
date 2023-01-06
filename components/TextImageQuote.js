@@ -5,11 +5,24 @@ import DOMPurify from "isomorphic-dompurify";
 import styles from "../styles/components/TextImageQuote.module.scss";
 
 const TextImageQuote = (props) => {
+	/* Check if paragraph content is null
+	 And Displays content if it null */
+	function isParagraphContent(isParagraphContent) {
+		let contentStyling;
+		if (isParagraphContent === null) {
+			contentStyling = "hidden";
+		} else {
+			contentStyling = `${styles.paragraph}`;
+		}
+		return contentStyling;
+	}
+
 	function createParagraphOneMarkup() {
 		return {
 			__html: DOMPurify.sanitize(`${props?.paragraphOne}`),
 		};
 	}
+
 	function createParagraphTwoMarkup() {
 		return {
 			__html: DOMPurify.sanitize(`${props?.paragraphTwo}`),
@@ -47,13 +60,28 @@ const TextImageQuote = (props) => {
 		displayButtonOption = "hidden mt-2 w-[fit-content]";
 	}
 
-	/* Allows the user to display
-	 the Quote text section */
-	let displayQuoteOption;
+	/* Allows the user to 
+    display the Button*/
+	let displayQuoteContent;
 	if (props?.displayQuoteOption === "Yes") {
-		displayQuoteOption = "block py-5 w-full md:w-[25rem] text-left";
+		displayQuoteContent = "block py-5 text-left";
 	} else if (props?.displayQuoteOption === "No") {
-		displayQuoteOption = "hidden py-5 w-full md:w-[25rem] text-left";
+		displayQuoteContent = "hidden py-5 text-left";
+	}
+
+	/* Check if Quote content is null And 
+	Displays content if it is not null */
+	function isQuoteContent(isQuoteContent) {
+		let contentStyling;
+		const tailwindStyling =
+			"my-6 mt-3 text-lg font-[400] leading-[1.75rem] tracking-[0.1rem] text-blue";
+
+		if (isQuoteContent === null) {
+			contentStyling = `hidden ${tailwindStyling}`;
+		} else {
+			contentStyling = `block ${tailwindStyling}`;
+		}
+		return contentStyling;
 	}
 
 	/* Allows the user to display
@@ -90,7 +118,7 @@ const TextImageQuote = (props) => {
 						}}
 					>
 						<img
-							className="mx-auto w-full xl:w-[300%] h-[450px] xl:h-[650px] object-cover"
+							className="mx-auto w-full xl:w-[300%] h-[650px] object-cover"
 							src={`/svg/backgroundIcons/Icon${props?.selectBackgroundAestheticsOptions}.svg`}
 							alt="Background Squares"
 						/>
@@ -112,11 +140,11 @@ const TextImageQuote = (props) => {
 						<div className="my-auto flex flex-col w-full lg:w-1/2 px-8 z-50">
 							<div className="text-left">
 								<h5 className="uppercase text-grey">OPS-BOX WAY</h5>
-								<h2 className="my-6 mt-3 text-2xl md:text-[2.5rem] text-blue">
+								<h2 className="my-6 mt-3 text-2xl md:text-4xl text-blue">
 									{props?.title}
 								</h2>
 								<div
-									className={styles.paragraph}
+									className={isParagraphContent(props?.paragraphOne)}
 									style={{
 										paddingBottom: "0.5rem",
 										fontWeight: `${displayBoldParagraphOption}`,
@@ -124,16 +152,18 @@ const TextImageQuote = (props) => {
 									dangerouslySetInnerHTML={createParagraphOneMarkup()}
 								/>
 								<div
-									className={styles.paragraph}
+									className={isParagraphContent(props?.paragraphTwo)}
 									dangerouslySetInnerHTML={createParagraphTwoMarkup()}
 								/>
 							</div>
 							{/* Quote Section */}
-							<div className={displayQuoteOption}>
-								<h5 className="my-6 mt-3 text-lg font-[400] leading-[1.75rem] tracking-[0.1rem] text-blue">
-									"{props?.quoteText}"
+							<div className={displayQuoteContent}>
+								<h5 className={isQuoteContent(props?.quoteText)}>
+									{props?.quoteText}
 								</h5>
-								<h6 className="my-6 mt-3 text-blue">{props?.personName}</h6>
+								<h6 className="my-6 mt-3 text-tiny text-blue">
+									{props?.personName}
+								</h6>
 							</div>
 							<div className={displayButtonOption}>
 								<div

@@ -10,6 +10,7 @@ const ReadBlogsCard = (props) => {
 			__html: `${sanitizedContent.substring(0, 800)}...`,
 		};
 	}
+
 	function createTrimmedParagraphMarkup() {
 		const sanitizedContent = DOMPurify.sanitize(props?.content);
 		return {
@@ -92,7 +93,7 @@ const ReadBlogsCard = (props) => {
 					<div className="w-full h-full object-cover flex">
 						<Link
 							href={`${props?.link}`}
-							className="uppercase font-semibold text-white hover:text-orange hover:ease-in-out hover:duration-200"
+							className="uppercase font-semibold text-white hover:text-orange hover:ease-in-out hover:duration-[0.5s]"
 						>
 							Read More
 						</Link>
@@ -129,7 +130,7 @@ const ReadBlogsCard = (props) => {
 					<div className="w-full h-full object-cover flex">
 						<Link
 							href={`${props?.link}`}
-							className="uppercase font-semibold text-white hover:text-blue hover:ease-in-out hover:duration-200"
+							className="uppercase font-semibold text-white hover:text-blue hover:ease-in-out hover:duration-[0.5s]"
 						>
 							Read More
 						</Link>

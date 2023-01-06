@@ -1,0 +1,63 @@
+// Imports
+@import "../fonts";
+@import "../colors";
+
+.teamMembers {
+	// .profileContent {
+	// 	z-index: 50;
+	// }
+
+	// .individualProfiles {
+	// 	top: 0;
+	// 	left: 0;
+	// 	right: 0;
+	// 	bottom: 0;
+	// 	opacity: 0;
+	// 	z-index: 999;
+	// 	position: fixed;
+	// 	// visibility: hidden;
+	// 	padding: 2.5rem 10rem;
+	// 	transition: opacity 500ms;
+	// 	background: rgba(3, 21, 66, 0.7);
+
+	// 	&:target {
+	// 		visibility: visible;
+	// 		opacity: 1;
+	// 	}
+	// }
+}
+
+.profileContent {
+	z-index: 50;
+}
+
+.individualProfiles {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	z-index: 999;
+	position: fixed;
+	visibility: hidden;
+	padding: 2.5rem 10rem;
+	transition: opacity 500ms;
+	background: rgba(3, 21, 66, 0.7);
+
+	&:target {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+/* Screen (1024px) */
+@media screen and (max-width: 1024px) {
+}
+
+/* Screen (768px) */
+@media screen and (max-width: 768px) {
+}
+
+/* Screen (390px) */
+@media screen and (max-width: 390px) {
+}

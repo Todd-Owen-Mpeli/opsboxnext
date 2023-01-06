@@ -3,13 +3,15 @@ import DOMPurify from "isomorphic-dompurify";
 
 const TitleAndParagraph = (props) => {
 	/* Check if paragraph content is null
-	 And Displays content if it null */
+	 And Displays content if it is not null */
 	function isParagraphContent(isParagraphContent) {
 		let contentStyling;
+		const tailwindStyling = "text-tiny text-center py-4";
+
 		if (isParagraphContent === null) {
-			contentStyling = "hidden text-tiny text-center py-4";
+			contentStyling = `hidden ${tailwindStyling}`;
 		} else {
-			contentStyling = "block text-tiny text-center py-4";
+			contentStyling = `block ${tailwindStyling}`;
 		}
 
 		return contentStyling;

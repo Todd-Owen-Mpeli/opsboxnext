@@ -45,13 +45,13 @@ const Navbar = (props) => {
 								</p>
 								<Link
 									href={`tel:${props?.navbarContent?.phoneNumber}`}
-									className="hidden sm:block text-blue text-base font-bold hover:text-yellow hover:ease-in-out hover:duration-200"
+									className="hidden sm:block text-blue text-base font-bold hover:text-yellow hover:ease-in-out hover:duration-[0.5s]"
 								>
 									{props?.navbarContent?.phoneNumber}
 								</Link>
 								<Link
 									href={`tel:${props?.navbarContent?.phoneNumber}`}
-									className="block sm:hidden text-blue text-base font-bold hover:text-yellow hover:ease-in-out hover:duration-200"
+									className="block sm:hidden text-blue text-base font-bold hover:text-yellow hover:ease-in-out hover:duration-[0.5s]"
 								>
 									<img
 										className="w-[25px] h-[25px] text-blue"
@@ -139,7 +139,7 @@ const Navbar = (props) => {
 										>
 											<Link
 												href="/services"
-												className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
+												className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-[0.5s]"
 											>
 												Services
 											</Link>
@@ -170,7 +170,7 @@ const Navbar = (props) => {
 										>
 											<Link
 												href="/about"
-												className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-200"
+												className="text-base text-center text-white hover:text-yellow hover:ease-in-out hover:duration-[0.5s]"
 											>
 												About
 											</Link>
@@ -203,29 +203,33 @@ const Navbar = (props) => {
 									</div>
 								</div>
 								<div className="flex flex-col mx-auto mt-0 p-0 pb-8 sm:px-3 sm:py-8">
-									<div className="flex flex-col sm:flex-row mt-1 gap-2">
-										<Link
-											href={`tel:${props?.navbarContent?.phoneNumber}`}
-											className="text-tiny text-white text-center sm:text-left hover:text-yellow hover:ease-in-out hover:duration-200"
-										>
-											{props?.navbarContent?.phoneNumber}
-										</Link>
-										<p className="text-tiny text-white hidden sm:block">or</p>
-										<Link
-											href={`tel:${props?.navbarContent?.phoneNumberOptionTwo}`}
-											className="text-tiny text-white text-center sm:text-left hover:text-yellow hover:ease-in-out hover:duration-200"
-										>
-											{props?.navbarContent?.phoneNumberOptionTwo}
-										</Link>
-										<p className="text-tiny text-white hidden sm:block">
-											or email
-										</p>
-										<Link
-											href={`mailto:${props?.footerContent?.emailOptionTwo}`}
-											className="text-tiny text-white text-center sm:text-left  hover:text-yellow hover:ease-in-out hover:duration-200"
-										>
-											{props?.navbarContent?.emailOptionTwo}
-										</Link>
+									<div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row mt-1 gap-2">
+										<div className="flex flex-row gap-2">
+											<Link
+												href={`tel:${props?.navbarContent?.phoneNumber}`}
+												className="text-tiny text-white text-center sm:text-left hover:text-yellow hover:ease-in-out hover:duration-[0.5s]"
+											>
+												{props?.navbarContent?.phoneNumber}
+											</Link>
+											<p className="text-tiny text-white hidden sm:block">or</p>
+											<Link
+												href={`tel:${props?.navbarContent?.phoneNumberOptionTwo}`}
+												className="text-tiny text-white text-center sm:text-left hover:text-yellow hover:ease-in-out hover:duration-[0.5s]"
+											>
+												{props?.navbarContent?.phoneNumberOptionTwo}
+											</Link>
+										</div>
+										<div className="flex flex-row gap-2">
+											<p className="text-tiny text-white hidden sm:block">
+												or email
+											</p>
+											<Link
+												href={`mailto:${props?.footerContent?.emailOptionTwo}`}
+												className="text-tiny text-white text-center sm:text-left  hover:text-yellow hover:ease-in-out hover:duration-[0.5s]"
+											>
+												{props?.navbarContent?.emailOptionTwo}
+											</Link>
+										</div>
 									</div>
 								</div>
 							</div>
